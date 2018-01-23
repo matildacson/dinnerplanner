@@ -5,9 +5,11 @@ var DinnerModel = function() {
 	// and selected dishes for the dinner menu
 
 	var selectedDishes = [];
-	var numGuests = getNumberOfGuests();
+	var numGuests = 0;
 
 	this.setNumberOfGuests = function(num) {
+		numGuests = num;
+		
 		//TODO Lab 1
 
 
@@ -15,7 +17,6 @@ var DinnerModel = function() {
 	
 	this.getNumberOfGuests = function() {
 		//TODO Lab 1
-		var numGuests = document.getElementById('numberOfGuests').innerHTML;
 		return numGuests
 
 	}
@@ -36,20 +37,39 @@ var DinnerModel = function() {
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
 		//TODO Lab 1
+		var menu = [];
 		for (var i = 0; i < selectedDishes.length; i++) {
-			var dish = getDish(i)
-			return dish
+			var dish = getDish(i);
+			menu.push(dish);
 		}
+		return menu
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
 		//TODO Lab 1
+		var menu = this.getFullMenu()
+		var ingredients = []
+		for(var i = 0; i < menu.length; i++){
+			ingredients.push(menu[i].ingredients);
+		}
+		return ingredients;
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
 		//TODO Lab 1
+		var total = [];
+		var allIngredients = this.getAllIngredients();
+		for (var i = 0; i < allIngredients.length; i++){
+			var dishPrice = 0;
+				for(var j = 0; j < allIngredients[i].length; j++) {
+					var ingredientPrice = allIngredients[i][j].price;
+					dishPrice += (ingredientPrice * numGuests);
+				}
+			total[i].push(dishPrice);
+		}
+		return total;
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
@@ -57,16 +77,19 @@ var DinnerModel = function() {
 	this.addDishToMenu = function(id) {
 		//TODO Lab 1 
 		var passedDish = getDish(id);
-		passedDish.type 
-		var existingMenuTypes = getAllDishes(passedDishType)
+		for(var i = 0; i < selectedDishes.length; i++) {
+			if(passedDish.type == getDish(selectedDishes[i].type){
+				selectedDishes[i] = id;
+			}
+		}
 
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
-		for(key in selectedDishes){
-			if(selectedDishes[key] == id){
-				delete selectedDishes[key]
+		for(var i = 0; i < selectedDishes.length; i++) {
+			if(selectedDishes[i] == id){
+				selectedDishes.splice(i, 1)
 			}
 		}
 		//TODO Lab 1
