@@ -78,7 +78,7 @@ var DinnerModel = function() {
 		//TODO Lab 1 
 		var passedDish = getDish(id);
 		for(var i = 0; i < selectedDishes.length; i++) {
-			if(passedDish.type == getDish(selectedDishes[i].type){
+			if(passedDish.type == getDish(selectedDishes[i]).type) {
 				selectedDishes[i] = id;
 			}
 		}
