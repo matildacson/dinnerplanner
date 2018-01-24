@@ -12,17 +12,24 @@
   </head>
   <body>
 	<div class="container">
-		<center>
-			<div class="jumbotron">
-				<h1>Dinner planner</h1>
+		<div>
+			<center>
+				<div class="jumbotron">
+					<h1>Dinner planner</h1>
+				</div>
+			</center>
+		</div>
+		<div class="row" style="background-color: pink;">
+			<div class="col-sm-6">
+				<h2>My dinner: <span id="numberOfGuests"></span> people</h1>
 			</div>
-			<div style="width:50%;">
-				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam nibh. Nunc varius facilisis eros. Sed erat. In in velit quis arcu ornare laoreet. Curabitur adipiscing luctus massa. Integer ut purus ac augue commodo commodo. Nunc nec mi eu justo tempor consectetuer. </p>
-			</div>
-			<div>
-				<button type="button" class="btn btn-primary">Create Dinner</button>
-			</div>
-		</center>
+			<div class="col-sm-6" align="right"><button type="button" class="btn btn-primary" style="margin:20px;">Go back and edit menu</button></div>
+		</div>
+		<div class="row" align="center">
+			<span id="menuOverview"> Här kommer det ligga tre dishes
+			</span>
+		</div>
+		<div class="row" align="center"><button type="button" class="btn btn-primary">Print full recipes</button></div>
 	</div>
 
     <!-- jQuery -->
