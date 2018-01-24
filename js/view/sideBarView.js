@@ -12,7 +12,7 @@
  * @param {jQuery object} container - references the HTML parent element that contains the view.
  * @param {Object} model - the reference to the Dinner Model
  */ 
-var ExampleView = function (container, model) {
+var SidebarView = function (container, model) {
 	
 	/**
 	 * We use the @method find() on @var {jQuery object} container to look for various elements 
@@ -34,10 +34,6 @@ var ExampleView = function (container, model) {
 	 * 
 	 */
 	var numberOfGuests = container.find("#numberOfGuests");
-	var recipes = container.find("#findRecipes");
-	recipes.html("Hej");
-
-	
 
 	/**
 	 * When we want references to some view elements to be available from outside of view, we 
@@ -56,6 +52,7 @@ var ExampleView = function (container, model) {
 	 * Here we use @var {jQuery object} numberOfGuests that is a reference to <span>
 	 * in our view to dynamically set it's value to "Hello World".
 	 */
+	model.setNumberOfGuests(10);
 	numberOfGuests.html(model.getNumberOfGuests());
 	
 }
