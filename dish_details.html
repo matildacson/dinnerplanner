@@ -34,8 +34,8 @@
 						<div class="col-sm-6">Cost</div>
 					</div>
 					<div class="row">
-						<div class="col-sm-6">Some dish</div>
-						<div class="col-sm-6">SEK 0:00</div>
+						<div class="col-sm-6"><span id="dishName"></span></div>
+						<div class="col-sm-6">SEK: <span id="totalDishCost"></span></div>
 					</div>
 					<button type="button" class="btn btn-primary">Create Dinner</button>
 				</div>
@@ -43,7 +43,7 @@
 			<div id="dishDetailsView" class="col-sm-9" style="background-color: blue;">
 				<div class="row">
 					<div class="col-sm-6">
-						<h1>name.dish</h1>
+						<h1 id="dishName"></h1>
 						<div class="bigImage" style="height: 200px; width:100%; background-color: pink;"></div>
 						<span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam nibh. Nunc varius facilisis eros. Sed erat. In in velit quis arcu ornare laoreet. Curabitur adipiscing luctus massa. Integer ut purus ac augue commodo commodo. Nunc nec mi eu justo tempor consectetuer.</span>
 						</br>
@@ -51,7 +51,7 @@
 					</div>
 					<div class="col-sm-6">
 						<div class="row">
-							<h2>ingredienser för <span id="numberOfGuests"> </span> personer</h2>
+							<h2>Ingredienser för <span id="numberOfGuests"></span> personer</h2>
 						</div>
 						<div class="row" id="dishIngredients">
 							massa ingredienser
