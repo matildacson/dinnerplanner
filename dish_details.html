@@ -12,16 +12,16 @@
   </head>
   <body>
 	<div class="container">
-		<center>
-			<div class="jumbotron">
-				<h1>Dinner planner</h1>
-			</div>
-		</center>
-	</div>
-	<div class="container">
+		<div>
+			<center>
+				<div class="jumbotron">
+					<h1>Dinner planner</h1>
+				</div>
+			</center>
+		</div>
 		<div class="row">
 			<div class="col-sm-3" style="background-color: green;">
-				<div id="exampleView">
+				<div id="sidebarView">
 					<div>
 						<h1>My Dinner</h1>
 						Number of guests: <span id="numberOfGuests"></span>
@@ -37,23 +37,37 @@
 						<div class="col-sm-6">Some dish</div>
 						<div class="col-sm-6">SEK 0:00</div>
 					</div>
-					<div><button type="button" class="btn btn-primary">Create Dinner</button></div>
+					<button type="button" class="btn btn-primary">Create Dinner</button>
 				</div>
 			</div>
-			<div class="col-sm-9" style="background-color: blue;">
-				<div>
-					<h1>Find a dish</h1>
-					<input>
-					<select width="50px;">
-						<option value="1">1</option>
-						<option value="1">1</option>
-						<option value="1">1</option>
-					</select>
-					<button type="button" class="btn btn-primary">Search</button>
+			<div id="dishDetailsView" class="col-sm-9" style="background-color: blue;">
+				<div class="row">
+					<div class="col-sm-6">
+						<h1>name.dish</h1>
+						<div class="bigImage" style="height: 200px; width:100%; background-color: pink;"></div>
+						<span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam nibh. Nunc varius facilisis eros. Sed erat. In in velit quis arcu ornare laoreet. Curabitur adipiscing luctus massa. Integer ut purus ac augue commodo commodo. Nunc nec mi eu justo tempor consectetuer.</span>
+						</br>
+						<button type="button" class="btn btn-primary">Back to search</button>
+					</div>
+					<div class="col-sm-6">
+						<div class="row">
+							<h2>ingredienser för <span id="numberOfGuests"> </span> personer</h2>
+						</div>
+						<div class="row" id="dishIngredients">
+							massa ingredienser
+						</div>
+						<div class="row" style="background-color: black;">
+							<div class="col-sm-6"><button type="button" class="btn btn-primary">Add to menu</button></div>
+							<div class="col-sm-6" align="right"><span id="totalDishCost">Total cost </span></div>
+						</div>
+
+					</div>
 				</div>
-				<div id="findRecipes" style="background-color: yellow;" >
-					Här kommer det dishes!
+				<div class="row">
+					<h1>Preparations</h1>
+					<span id="dishDescription"></span>
 				</div>
+
 			</div>
 	
 		</div>
@@ -67,7 +81,8 @@
 	<!-- The application JavaScript code -->
 	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
-	<script src="js/view/exampleView.js"></script>
+	<script src="js/view/sidebarView.js"></script>
+	<script src="js/view/selectDishView.js"></script>
 	<!-- TODO: Here you should include JS code for your other views -->
   </body>
 </html>
