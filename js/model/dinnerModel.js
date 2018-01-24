@@ -5,7 +5,7 @@ var DinnerModel = function() {
 	// and selected dishes for the dinner menu
 
 	var selectedDishes = [];
-	var numGuests = 0;
+	//var numGuests = 0;
 
 	this.setNumberOfGuests = function(num) {
 		numGuests = num;
@@ -60,7 +60,7 @@ var DinnerModel = function() {
 					var ingredientPrice = allIngredients[i][j].price;
 					dishPrice += (ingredientPrice * numGuests);
 				}
-			total[i].push(dishPrice);
+			total.push(dishPrice);
 		}
 		return total;
 	}

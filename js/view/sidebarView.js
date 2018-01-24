@@ -32,8 +32,63 @@ var SidebarView = function (container, model) {
 	 * make your view code modular and ensure it dosn't break if by mistake somebody else
 	 * in some other view gives the same ID to another element.
 	 * 
-	 */
+	 */ 
+
+	//Number of guests
 	var numberOfGuests = container.find("#numberOfGuests");
+	model.setNumberOfGuests(1);
+	numberOfGuests.html(model.getNumberOfGuests());
+
+	//add dish to menu
+	model.addDishToMenu(1);
+
+
+	//return dishCost
+	//var totalDishPrice = 0;
+	//var dishPrice = container.find("#dishPrice");
+	//for(var i = 0; i < selectedDishes.length-1; i++) {
+	//	oneDishPrice += selectedDishes[i].ingredients.price)
+	//};
+	//dishPrice.html(oneDishPrice);
+
+	//return dishPrice
+
+	//	var selectedDishes = model.getFullMenu();
+	//for(var i = 0; i < selectedDishes.length; i++) {
+	//	var row = getSelectedDishesRow();
+	//	row.dishName = selectedDishes[i].name
+
+	
+
+		//return dishName
+	var totalPrice = 0
+	
+	var menuDishes = model.getFullMenu()
+	for(var i = 0; i < menuDishes.length; i++) {
+		var selectedDishes = document.getElementById("selectedDishes");
+		var dish = document.createElement("div")
+		var dishName = document.createElement("div");
+		var dishPrice = document.createElement("div");
+		dish.className = "row";
+		dishName.className = "col-sm-6";
+		dishPrice.className = "col-sm-6";
+		dishName.id = "dishName";
+		dishPrice.id = "dishId";
+		selectedDishes.appendChild(dish);
+		dish.appendChild(dishName);
+		dish.appendChild(dishPrice); 
+		dishName.innerHTML = menuDishes[i].name;
+		dishPrice.innerHTML = model.getTotalMenuPrice()[i];
+		totalPrice += model.getTotalMenuPrice()[i]
+		};
+
+		var totalDishCost = container.find("#totalDishCost")
+		totalDishCost.html("SEK: "+totalPrice);
+
+
+
+	
+	
 
 	/**
 	 * When we want references to some view elements to be available from outside of view, we 
@@ -52,8 +107,7 @@ var SidebarView = function (container, model) {
 	 * Here we use @var {jQuery object} numberOfGuests that is a reference to <span>
 	 * in our view to dynamically set it's value to "Hello World".
 	 */
-	model.setNumberOfGuests(10);
-	numberOfGuests.html(model.getNumberOfGuests());
+
 	
 }
  
