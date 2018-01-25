@@ -19,10 +19,9 @@ var DinnerModel = function() {
 	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
 		//TODO Lab 1
-		var dish = this.getAllDishes(type);
 		for (var i = 0; i < selectedDishes.length; i++) {
-			if(i == dish.id) {
-				return dish;
+			if(this.getDish(selectedDishes[i]).type == type) {
+				return this.getDish(selectedDishes[i]);
 			}
 		}
 	}
@@ -69,14 +68,15 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
 		//TODO Lab 1
-		selectedDishes.push(id);
 		var type = this.getDish(id).type;
-
-		for(var i = 0; i < selectedDishes.length-1; i++) {
-			if(type == this.getDish(selectedDishes[i]).type) {
+		for(var i = 0; i < selectedDishes.length; i++) {
+			if (type == this.getDish(selectedDishes[i]).type) {
 				selectedDishes.splice(i, 1);
 			}
 		}
+
+		selectedDishes.push(id);
+		
 	}
 
 	//Removes dish from menu
@@ -370,5 +370,14 @@ var DinnerModel = function() {
 			}]
 		}
 	];
-
 }
+/*
+var model = new DinnerModel();
+model.addDishToMenu(1);
+model.addDishToMenu(2);
+model.addDishToMenu(100);
+model.addDishToMenu(1);
+var menu = model.getFullMenu();
+console.log(menu[0].name);
+console.log(menu);
+*/
