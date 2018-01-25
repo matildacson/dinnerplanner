@@ -7,11 +7,11 @@ var DishDetailsView = function (container, model) {
 	container.find("#ingHeader").html("Ingredients for " + model.getNumberOfGuests() + " people");
 	var ings = "";
 	for (var i = 0; i < dish.ingredients.length; i++) {
-		ings += "<p>" + " " + dish.ingredients[i].quantity + 
+		ings += "<p>" + " " + dish.ingredients[i].quantity*model.getNumberOfGuests() + 
 			" " + dish.ingredients[i].unit +
 			" " + dish.ingredients[i].name +
 			" SEK" +
-			" " + dish.ingredients[i].price + "</p>";
+			" " + dish.ingredients[i].price*model.getNumberOfGuests() + "</p>";
 	}
 	container.find("#ingredients").html(ings);
 	container.find("#totalPrice").html("SEK " + model.getTotalMenuPrice()[1]);
