@@ -17,8 +17,10 @@ var getDishWindow = function(dish, container, model) {
 	// Add image to the div
 	var img = document.createElement("img");
 	img.src = "images/"+dish.image;
-	img.style = "height: 150px; width: 100%;"
+	img.style = "height: 200px; width: 100%; "
+	img.id = "dishImg";
 	div.appendChild(img);
+	container.find("#dishImg").wrap('<a href="dish_details.html"></a>');
 
 	// Add text to the div
 	var p = document.createElement("p");

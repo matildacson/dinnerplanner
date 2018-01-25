@@ -5,20 +5,23 @@ var DinnerOverviewView = function (container, model) {
 	// get all dishes in menu
 	var dishes = model.getFullMenu();
 
+	var getNumberOfGuests = container.find("#numberOfGuests");
+	getNumberOfGuests.html(model.getNumberOfGuests());
+
 
 	// Pass all dishes in menu to getDishWindow()
 	for (var i = 0; i < dishes.length; i++) {
-		getDishWindow(dishes[i]);
+		getDishWindow((dishes[i]), container, model);
 	}
 
 }
 
-var getDishWindow = function(dish) {
+var getDishWindow = function(dish, container, model) {
 	// Add a div to the div with id "dishItemView"
-	var src = document.getElementById("dinnerOverviewView");
+	container.find("#dinnerOverviewView");
 	var div = document.createElement("div");
 	div.className = "col-sm-3";
-	src.appendChild(div);
+	container.append(div);
 
 	// Add image to the div
 	var img = document.createElement("img");

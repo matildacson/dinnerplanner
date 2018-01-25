@@ -5,7 +5,7 @@ var DinnerModel = function() {
 	// and selected dishes for the dinner menu
 
 	var selectedDishes = [1, 100];
-	var numGuests = 10;
+//	var numGuests = 10;
 		//add dish to menu
 
 
