@@ -4,8 +4,11 @@ var DinnerModel = function() {
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
 
-	var selectedDishes = [];
-	//var numGuests = 0;
+	var selectedDishes = [1, 100];
+	//var numGuests = 10;
+		//add dish to menu
+
+
 
 	this.setNumberOfGuests = function(num) {
 		numGuests = num;
@@ -13,6 +16,7 @@ var DinnerModel = function() {
 	
 	this.getNumberOfGuests = function() {
 		//TODO Lab 1
+		numGuests = 10;
 		return numGuests
 	}
 
@@ -69,13 +73,21 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
 		//TODO Lab 1
-		selectedDishes.push(id);
 		var type = this.getDish(id).type;
-
-		for(var i = 0; i < selectedDishes.length-1; i++) {
-			if(type == this.getDish(selectedDishes[i]).type) {
-				selectedDishes.splice(i, 1);
+		if(selectedDishes.length > 0) {
+			for(var i = 0; i < selectedDishes.length; i++) {
+				if(type == this.getDish(selectedDishes[i]).type) {
+					selectedDishes.splice(i, 1);
+					selectedDishes.push(id)
+				}
+				else {
+					selectedDishes.push(id);
+				}
 			}
+
+		}
+		else{
+			selectedDishes.push(id);
 		}
 	}
 

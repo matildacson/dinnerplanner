@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
 
   </head>
-  <body>
+  <body id="allOfDishDetails">
 	<div class="container">
 		<div>
 			<center>
@@ -23,19 +23,21 @@
 			<div class="col-sm-3" style="background-color: green;">
 				<div id="sidebarView">
 					<div>
-						<h1>My Dinner</h1>
+						<h1>My Dinner</h1> 
 						Number of guests: <span id="numberOfGuests"></span>
 						<br/>
 						<button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
 						<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
 					</div>
 					<div class="row">
-						<div class="col-sm-6">Dish Name</div>
-						<div class="col-sm-6">Cost</div>
+						<div class="col-sm-6"><h5>Dish Name</h5></div>
+						<div class="col-sm-6"><h5>Cost</h5></div>
+					</div>
+					<div class="row" id="selectedDishes">
 					</div>
 					<div class="row">
-						<div class="col-sm-6"><span id="dishName"></span></div>
-						<div class="col-sm-6">SEK: <span id="totalDishCost"></span></div>
+						<div class="col-sm-6"></div>
+						<div class="col-sm-6" id="totalDishCost"></div>
 					</div>
 					<button type="button" class="btn btn-primary">Create Dinner</button>
 				</div>
@@ -79,10 +81,11 @@
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
 	<!-- The application JavaScript code -->
-	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
 	<script src="js/view/sidebarView.js"></script>
 	<script src="js/view/dishItemView.js"></script>
+	<script src="js/view/dinnerOverviewView.js"></script>
+	<script src="js/app.js"></script>
 	<!-- TODO: Here you should include JS code for your other views -->
   </body>
 </html>
