@@ -4,21 +4,20 @@ var DishItemView = function (container, model) {
 
 	// Pass all dishes in "dishes" to getDishWindow()
 	for (var i = 0; i < dishes.length; i++) {
-		getDishWindow(dishes[i]);
+		getDishWindow(dishes[i], container, model);
 	}
 }
 
-var getDishWindow = function(dish) {
+var getDishWindow = function(dish, container, model) {
 	// Add a div to the div with id "dishItemView"
-	var src = document.getElementById("dishItemView");
 	var div = document.createElement("div");
-	div.className = "col-sm-3";
-	src.appendChild(div);
+	div.style = "display:inline-block; margin-left:10px;"
+	container.append(div);
 
 	// Add image to the div
 	var img = document.createElement("img");
 	img.src = "images/"+dish.image;
-	img.style = "height: 200px; width: 100%; "
+	img.style = "height: 150px; width: 100%;"
 	div.appendChild(img);
 
 	// Add text to the div
