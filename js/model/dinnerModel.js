@@ -5,7 +5,7 @@ var DinnerModel = function() {
 	// and selected dishes for the dinner menu
 
 	var selectedDishes = [1, 100];
-	//var numGuests = 10;
+	var numGuests = 10;
 		//add dish to menu
 
 
@@ -375,19 +375,4 @@ var DinnerModel = function() {
 			}]
 		}
 	];
-<<<<<<< HEAD
 }
-/*
-var model = new DinnerModel();
-model.addDishToMenu(1);
-model.addDishToMenu(2);
-model.addDishToMenu(100);
-model.addDishToMenu(1);
-var menu = model.getFullMenu();
-console.log(menu[0].name);
-console.log(menu);
-*/
-=======
-
-}
->>>>>>> master

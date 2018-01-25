@@ -6,7 +6,7 @@ $(function() {
 
 	if($("#allOfDishDetails").length){
 		var sidebarView = new SidebarView($("#sidebarView"), model);
-	//	var dishDetailsView= new DishDetailsView($("#dishDetailsView"), model);
+		var dishDetailsView= new DishDetailsView($("#dishDetailsView"), model);
 	}
 
 	if($("#allOfDinnerOverview").length){
