@@ -5,10 +5,6 @@ var DinnerOverviewView = function (container, model) {
 	// get all dishes in menu
 	var dishes = model.getFullMenu();
 
-	var getNumberOfGuests = container.find("#numberOfGuests");
-	getNumberOfGuests.html(model.getNumberOfGuests());
-
-
 	// Pass all dishes in menu to getDishWindow()
 	for (var i = 0; i < dishes.length; i++) {
 		getDishWindow((dishes[i]), container, model);

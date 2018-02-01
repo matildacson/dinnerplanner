@@ -10,6 +10,7 @@ $(function() {
 	}
 
 	if($("#allOfDinnerOverview").length){
+		var topBarView = new TopBarView($("#topBarView"), model);
 		var dinnerOverviewView = new DinnerOverviewView($("#dinnerOverviewView"), model);
 	}
 

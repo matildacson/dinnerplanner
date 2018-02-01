@@ -55,3 +55,8 @@ table{
 #sidebarButton{
 	margin: 20px;
 }
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
