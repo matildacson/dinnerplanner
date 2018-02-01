@@ -18,6 +18,11 @@ $(function() {
 		var sidebarView = new SidebarView($("#sidebarView"), model);
 		var dishSearchView = new DishSearchView($("#dishSearchView"), model)
 	}
+
+	if($("#allOfDinnerPrintout").length){
+		var topBarView = new TopBarView($("#topBarView"), model);
+		var dinnerPrintoutView = new DinnerPrintoutView($("#dinnerPrintoutView"), model)
+	}
 //	var dinnerOverviewView = new DinnerOverviewView($("#dinnerOverviewView"), model);
 
 	/**

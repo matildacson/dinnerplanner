@@ -1,4 +1,3 @@
-
 var SidebarView = function (container, model) {
 
 	//Number of guests
