@@ -15,7 +15,7 @@ $(function() {
 
 	if($("#allOfSelectDish").length){
 		var sidebarView = new SidebarView($("#sidebarView"), model);
-		var dishItemView = new DishItemView($("#dishItemView"), model);
+		var dishSearchView = new DishSearchView($("#dishSearchView"), model)
 	}
 //	var dinnerOverviewView = new DinnerOverviewView($("#dinnerOverviewView"), model);
 
