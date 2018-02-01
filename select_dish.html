@@ -9,53 +9,50 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
 
+    <!-- Our css -->
+    <link rel="stylesheet" href="style.css">
+
   </head>
   <body id="allOfSelectDish">
 	<div class="container">
 		<center>
-			<div class="jumbotron">
-				<h1>Dinner planner</h1>
-			</div>
+		<div id="header"><center><h1>Dinner planner</h1></center>
+		</div>
 		</center>
-	</div>
-	<div class="container">
 		<!-- <div class="row"> -->
-			<div class="col-sm-3" style="background-color: green;">
-				<div id="sidebarView">
-					<div>
-						<h1>My Dinner</h1> 
-						Number of guests: <span id="numberOfGuests"></span>
-						<br/>
-						<button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-						<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
-					</div>
-					<div class="row">
-						<div class="col-sm-6"><h5>Dish Name</h5></div>
-						<div class="col-sm-6"><h5>Cost</h5></div>
-					</div>
-					<div class="row" id="selectedDishes">
-					</div>
-					<div class="row">
-						<div class="col-sm-6"></div>
-						<div class="col-sm-6" id="totalDishCost"></div>
-					</div>
-					<a href="dinner_overview.html"><button type="button" class="btn btn-primary">Create Dinner</button></a>
-				</div>
+		<div class="col-sm-3" id ="sidebarView">
+			<div>
+				<h2>My Dinner</h2> 
+				Number of guests: <span id="numberOfGuests"></span>
+				<br/>
+				<button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
 			</div>
-			<div class="col-sm-9" style="background-color: blue;">
-				<div>
-					<h1>Find a dish</h1>
-					<input>
-					<select width="50px;">
-						<option value="1">1</option>
-						<option value="1">1</option>
-						<option value="1">1</option>
-					</select>
-					<button type="button" class="btn btn-primary">Search</button>
-				</div>
-				<div id="dishItemView">
-				</div>
+			<table id="selectedDishes">
+				<th>Dish</th>
+				<th>Cost</th>
+			</table>
+			<div class="row">
+				<div class="col-sm-6"></div>
+				<div class="col-sm-6" id="totalDishCost"></div>
 			</div>
+			<center><a href="dinner_overview.html"><button id="sidebarButton" type="button" class="btn btn-primary">Create Dinner</button></a></center>
+			
+		</div>
+		<div class="col-sm-9">
+			<div>
+				<h2>Find a dish</h2>
+				<input>
+				<select width="50px;">
+					<option value="Starter">Starter</option>
+					<option value="1">2</option>
+					<option value="1">1</option>
+				</select>
+				<button type="button" class="btn btn-primary">Search</button>
+			</div>
+			<div id="dishItemView">
+			</div>
+		</div>
 	
 		<!-- </div> -->
 	</div>

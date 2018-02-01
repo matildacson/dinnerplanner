@@ -13,26 +13,33 @@ var SidebarView = function (container, model) {
 	var totalPrice = 0
 	
 	var menuDishes = model.getFullMenu()
+	var selectedDishes = container.find("#selectedDishes");
 	for(var i = 0; i < menuDishes.length; i++) {
-		var selectedDishes = document.getElementById("selectedDishes");
-		var dish = document.createElement("div");
-		var dishName = document.createElement("div");
-		var dishPrice = document.createElement("div");
-		dish.className = "row";
-		dishName.className = "col-sm-6";
-		dishPrice.className = "col-sm-6";
-		dishName.id = "dishName";
-		dishPrice.id = "dishId";
-		selectedDishes.appendChild(dish);
+		var dish = document.createElement("tr");
+		var dishName = document.createElement("td");
+		var priceCurrency = document.createElement("td")
+		var dishPrice = document.createElement("td");
+		selectedDishes.append(dish);
 		dish.appendChild(dishName);
+		dish.appendChild(priceCurrency)
 		dish.appendChild(dishPrice); 
 		dishName.innerHTML = menuDishes[i].name;
 		dishPrice.innerHTML = model.getTotalMenuPrice()[i];
+		priceCurrency.innerHTML = "SEK";
 		totalPrice += model.getTotalMenuPrice()[i]
 		};
 
-		var totalDishCost = container.find("#totalDishCost")
-		totalDishCost.html("SEK: "+totalPrice);
+	var totalPriceRow = document.createElement("tr");	
+	var total = document.createElement("td")
+	var currency = document.createElement("td");
+	var totalMenuCost = document.createElement("td");
+	selectedDishes.append(totalPriceRow);
+	totalPriceRow.appendChild(total);
+	totalPriceRow.appendChild(currency);
+	totalPriceRow.appendChild(totalMenuCost);
+	totalMenuCost.innerHTML = totalPrice;
+	currency.innerHTML = "SEK";
+	total.innerHTML = "TOTAL:"
 
 
 
