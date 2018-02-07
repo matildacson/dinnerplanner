@@ -14,15 +14,11 @@
 
   </head>
   <body id="allOfDishDetails">
+  	<div id="header">
+		<center><h1>Dinner planner</h1></center>
+	</div>
 	<div class="container">
-		<div>
-			<center>
-				<div id="header">
-					<h1>Dinner planner</h1>
-				</div>
-			</center>
-		</div>
-		<div class="col-sm-3" id ="sidebarView">
+		<div class="col-sm-3" id ="sidebarView" >
 			<div>
 				<h2>My Dinner</h2> 
 				Number of guests: <span id="numberOfGuests"></span>
@@ -50,10 +46,10 @@
 					<button type="button" class="btn btn-primary">Back to search</button>
 				</a>
 			</div>
-			<div class="col-sm-6">
-				<h2 id="ingHeader"></h2>
-				<table id="ingredients"></table>
-				<button type="button" class="btn btn-primary">Add to menu</button>
+			<div class="col-sm-6 ingredientsDiv">
+				<h2 id="ingredientsHeader"></h2>
+				<table id="ingredientsTable"></table>
+				<center><button type="button" class="btn btn-primary">Add to menu</button></center>
 			</div>
 		</div>
 	</div>

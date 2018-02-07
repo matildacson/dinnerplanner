@@ -7,6 +7,8 @@ $(function() {
 	if($("#allOfDishDetails").length){
 		var sidebarView = new SidebarView($("#sidebarView"), model);
 		var dishDetailsView= new DishDetailsView($("#dishDetailsView"), model);
+		$('#sidebarView').hide();
+	 	$('#dishDetailsView').hide();
 	}
 
 	if($("#allOfDinnerOverview").length){
@@ -21,7 +23,7 @@ $(function() {
 
 	if($("#allOfDinnerPrintout").length){
 		var topBarView = new TopBarView($("#topBarView"), model);
-		var dinnerPrintoutView = new DinnerPrintoutView($("#dinnerPrintoutView"), model)
+		var dinnerPrintoutView = new DinnerPrintoutView($("#dinnerPrintoutView"), model);
 	}
 //	var dinnerOverviewView = new DinnerOverviewView($("#dinnerOverviewView"), model);
 
@@ -31,5 +33,10 @@ $(function() {
 	 * In other places you should limit the search only to the children 
 	 * of the specific view you're working with (see exampleView.js).
 	 */
+
+//	 function showDishDetailsScreen() {
+//	 	$('#sidebarView').style.display = 'none';
+//	 	$('#dishDetailsView').style.display = 'none';
+//	 };
 
 });

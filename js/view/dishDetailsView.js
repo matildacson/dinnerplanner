@@ -18,8 +18,8 @@ var DishDetailsView = function (container, model) {
 //			" " + dish.ingredients[i].price*model.getNumberOfGuests() + "</p>";
 //	}
 //ingredients div
-	container.find("#ingHeader").html("Ingredients for " + model.getNumberOfGuests() + " people");
-	var ingredients = container.find("#ingredients");
+	container.find("#ingredientsHeader").html("Ingredients for " + model.getNumberOfGuests() + " people");
+	var ingredients = container.find("#ingredientsTable");
 	for (var i = 0; i < dish.ingredients.length; i++) {
 		var ingredientRow = document.createElement("tr");
 		var ingredientQuantity = document.createElement("td");
