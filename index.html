@@ -41,7 +41,7 @@
 				<div class="col-sm-6"></div>
 				<div class="col-sm-6" id="totalDishCost"></div>
 			</div>
-			<center><a href="dinner_overview.html"><button id="sidebarButton" type="button" class="btn btn-primary">Create Dinner</button></a></center>
+			<center><button id="sidebarButton" type="button" class="btn btn-primary">Create Dinner</button></center>
 			
 		</div>
 		<div class="col-sm-9" id="dishSearchView">
@@ -50,13 +50,38 @@
 				<input>
 				<select width="50px;">
 					<option value="Starter">Starter</option>
-					<option value="1">2</option>
-					<option value="1">1</option>
+					<option value="Main Dish">Main Dish</option>
+					<option value="Dessert">Dessert</option>
 				</select>
 				<button type="button" class="btn btn-primary">Search</button>
 			</div>
-
 		</div>
+		<div id="dishDetailsView" class="col-sm-9">
+			<div class="col-sm-6">
+				<div><h2  id="nameDiv"></h2></div>
+				<div id="dishImg"></div>
+				<div id="description"></div>
+				<button type="button" class="btn btn-primary">Back to search</button>
+
+			</div>
+			<div class="col-sm-6 ingredientsDiv">
+				<h2 id="ingredientsHeader"></h2>
+				<table id="ingredientsTable"></table>
+				<center><button type="button" class="btn btn-primary">Add to menu</button></center>
+			</div>
+		</div>
+		<div class="row vertical-align" id="topBarView">
+			<div class="col-sm-6">
+				<h2>My dinner: <span id="numberOfGuests"></span> guests</h2>
+			</div>
+			<div class="col-sm-6">
+				<button class="btn btn-primary">Go back and edit menu</button>
+			</div>
+		</div>
+		<div class="row" id="dinnerOverviewView">
+		</div>
+		<div id="dinnerPrintoutView">
+       </div>
 	</div></center>
 
     <!-- jQuery -->
@@ -66,11 +91,15 @@
 
 	<!-- The application JavaScript code -->
 	<script src="js/app.js"></script>
-	<script src="js/model/dinnerModel.js"></script>
-	<script src="js/view/sideBarView.js"></script>
-	<script src="js/view/dishItemView.js"></script>
+	<script src="js/view/dinnerPrintoutView.js"></script>
 	<script src="js/view/dinnerOverviewView.js"></script>
+	<script src="js/view/dishDetailsView.js"></script>
+	<script src="js/view/dishItemView.js"></script>
 	<script src="js/view/dishSearchView.js"></script>
-	<!--<script src="js/view/indexView.js"></script>-->
+	<script src="js/view/sideBarView.js"></script>
+	<script src="js/view/topBarView.js"></script>
+
+	<script src="js/model/dinnerModel.js"></script>
+
   </body>
 </html>
