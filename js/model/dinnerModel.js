@@ -6,12 +6,14 @@ var DinnerModel = function() {
 
 	var selectedDishes = [1, 100];
 	var numGuests = 10;
-		//add dish to menu
+	var observers = [];
+		//add dish to men
 
 
 
 	this.setNumberOfGuests = function(num) {
 		numGuests = num;
+		this.notifyObservers();
 	}
 	
 	this.getNumberOfGuests = function() {
@@ -123,6 +125,15 @@ var DinnerModel = function() {
 		}
 	}
 
+	this.addObserver = function(observer){
+		observers.push(observer);
+	}
+
+	this.notifyObservers = function(){
+		for(var i =0; i < observers.length; i++){
+			observers[i].update()
+		}
+	}
 
 	// the dishes variable contains an array of all the 
 	// dishes in the database. each dish has id, name, type,

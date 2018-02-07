@@ -9,8 +9,6 @@ $(function() {
 	var dinnerOverviewView = new DinnerOverviewView($("#dinnerOverviewView"), model);
 	var dinnerPrintoutView = new DinnerPrintoutView($("#dinnerPrintoutView"), model);
 
-	document.getElementById("createDinnerButton").addEventListener("click", showSelectDishPage, false);
-	document.getElementById("createDinnerButton").addEventListener("click", showSelectDishPage, false);
 
 	// Index view
 	$('#sidebarView').hide();
@@ -33,6 +31,8 @@ $(function() {
 	 	$('#topBarView').hide();
 	};
 
+//	model.addObserver(sidebarView);
+	document.getElementById("createDinnerButton").addEventListener("click", showSelectDishPage, false);
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
 	 * use the $('someSelector') to search for elements in the whole HTML.

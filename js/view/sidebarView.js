@@ -13,6 +13,7 @@ var SidebarView = function (container, model) {
 	
 	var menuDishes = model.getFullMenu()
 	var selectedDishes = container.find("#selectedDishes");
+	var prices = [];
 	for(var i = 0; i < menuDishes.length; i++) {
 		var dish = document.createElement("tr");
 		var dishName = document.createElement("td");
@@ -22,6 +23,7 @@ var SidebarView = function (container, model) {
 		dish.appendChild(dishName);
 		dish.appendChild(priceCurrency)
 		dish.appendChild(dishPrice); 
+		prices.push(dishPrice);
 		dishName.innerHTML = menuDishes[i].name;
 		dishPrice.innerHTML = model.getTotalMenuPrice()[i];
 		priceCurrency.innerHTML = "SEK";
@@ -40,10 +42,22 @@ var SidebarView = function (container, model) {
 	currency.innerHTML = "SEK";
 	total.innerHTML = "TOTAL:"
 
+	this.update = function (){
+		var numberOfGuests = container.find("#numberOfGuests");
+		numberOfGuests.html(model.getNumberOfGuests());
+		var newTotalPrice = 0
+		for (var i = 0; i < prices.length; i++){
+			prices[i].innerHTML = model.getTotalMenuPrice()[i];
+			newTotalPrice += model.getTotalMenuPrice()[i]
+			totalMenuCost.innerHTML = newTotalPrice;
 
+		}
+		
+
+	}
 
 	
-	
+	model.addObserver(this);
 
 	/**
 	 * When we want references to some view elements to be available from outside of view, we 
@@ -56,6 +70,7 @@ var SidebarView = function (container, model) {
 	 * 
 	 */
 	this.plusButton = container.find("#plusGuest");
+	this.plusButton.click(function() {model.setNumberOfGuests(model.getNumberOfGuests() + 1) } );
 	this.minusButton = container.find("#minusGuest");
 	
 	/**

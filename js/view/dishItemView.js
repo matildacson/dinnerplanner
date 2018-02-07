@@ -9,7 +9,6 @@ var DishItemView = function(dish, container, model) {
 	img.src = "images/"+dish.image;
 	img.id = "dishImg";
 	div.appendChild(img);
-	container.find("#dishImg").wrap('<a href="dish_details.html"></a>');
 
 	// Add text to the div
 	var p = document.createElement("p");
