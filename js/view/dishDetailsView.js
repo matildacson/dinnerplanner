@@ -1,22 +1,12 @@
 var DishDetailsView = function (container, model) {
 
-	var dish = model.getSelectedDish("starter");
+	var dish = model.getDish(1);
 
 	//div in the middle
 	container.find("#nameDiv").html(dish.name);
 	container.find("#dishImg").html("<img src='images/"+dish.image+"' img>");
 	container.find("#description").html(dish.description);
 
-	//ingredients div
-//	container.find("#ingHeader").html("<h4>Ingredients for " + model.getNumberOfGuests() + " people</h4>");
-//	var ings = "";
-//	for (var i = 0; i < dish.ingredients.length; i++) {
-//		ings += "<p>" + " " + dish.ingredients[i].quantity*model.getNumberOfGuests() + 
-//			" " + dish.ingredients[i].unit +
-//			" " + dish.ingredients[i].name +
-//			" SEK" +
-//			" " + dish.ingredients[i].price*model.getNumberOfGuests() + "</p>";
-//	}
 //ingredients div
 	container.find("#ingredientsHeader").html("Ingredients for " + model.getNumberOfGuests() + " people");
 	var ingredients = container.find("#ingredientsTable");
@@ -30,7 +20,7 @@ var DishDetailsView = function (container, model) {
 		ingredientQuantity.innerHTML = dish.ingredients[i].quantity*model.getNumberOfGuests() ;
 		ingredientUnit.innerHTML = dish.ingredients[i].unit;
 		ingredientName.innerHTML = dish.ingredients[i].name;
-		ingredientCurrency.innerHTML = "SEK"
+		ingredientCurrency.innerHTML = "SEK";
 		ingredientPrice.innerHTML = dish.ingredients[i].price*model.getNumberOfGuests();
 		ingredients.append(ingredientRow);
 		ingredientRow.appendChild(ingredientQuantity);
@@ -56,5 +46,10 @@ var DishDetailsView = function (container, model) {
 	totalMenuCost.innerHTML = model.getTotalMenuPrice()[1];
 	currency.innerHTML = "SEK";
 	total.innerHTML = "TOTAL:"
+
+	this.addToMenuButton = container.find("#addToMenu");
+	this.addToMenuButton.click(model.addDishToMenu(dish.id));
+
+//	model.addObserver(this);
 }
  

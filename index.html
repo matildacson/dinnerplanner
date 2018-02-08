@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="style.css">
 
   </head>
-  <body id="allOfIndex"><center>
+  <body id="allOfIndex">
   	<div id="header"><center><h1>Dinner planner</h1></center>
 	</div>
 	<div class="container">
@@ -48,12 +48,12 @@
 			<div>
 				<h2>Find a dish</h2>
 				<input>
-				<select width="50px;">
+				<select id="searchDishType" width="50px;">
 					<option value="Starter">Starter</option>
-					<option value="Main Dish">Main Dish</option>
+					<option selected="selected" value="Main Dish">Main Dish</option>
 					<option value="Dessert">Dessert</option>
 				</select>
-				<button type="button" class="btn btn-primary">Search</button>
+				<button type="button" id="searchButton" class="btn btn-primary">Search</button>
 			</div>
 		</div>
 		<div id="dishDetailsView" class="col-sm-9">
@@ -67,22 +67,22 @@
 			<div class="col-sm-6 ingredientsDiv">
 				<h2 id="ingredientsHeader"></h2>
 				<table id="ingredientsTable"></table>
-				<center><button type="button" class="btn btn-primary">Add to menu</button></center>
+				<center><button type="button" class="btn btn-primary" id="addToMenu">Add to menu</button></center>
 			</div>
 		</div>
-		<div class="row vertical-align" id="topBarView">
+		<div class="row" id="topBarView">
 			<div class="col-sm-6">
 				<h2>My dinner: <span id="numberOfGuests"></span> guests</h2>
 			</div>
 			<div class="col-sm-6">
-				<button class="btn btn-primary">Go back and edit menu</button>
+				<button class="btn btn-primary" id="backButton">Go back and edit menu</button>
 			</div>
 		</div>
 		<div class="row" id="dinnerOverviewView">
 		</div>
 		<div id="dinnerPrintoutView">
        </div>
-	</div></center>
+	</div>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
@@ -98,6 +98,9 @@
 	<script src="js/view/dishSearchView.js"></script>
 	<script src="js/view/sideBarView.js"></script>
 	<script src="js/view/topBarView.js"></script>
+
+	<!-- Controllers -->
+	<script src="js/controllers/sidebarController.js"></script>
 
 	<script src="js/model/dinnerModel.js"></script>
 

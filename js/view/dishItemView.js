@@ -1,6 +1,7 @@
 var DishItemView = function(dish, container, model) {
 	// Add a div to the div with id "dishItemView"
 	var div = document.createElement("div");
+	div.className = dish.name;
 	div.style = "display:inline-block; margin-left:10px;"
 	container.append(div);
 
@@ -15,4 +16,10 @@ var DishItemView = function(dish, container, model) {
 	p.align = "center";
 	p.innerHTML = dish.name;
 	div.appendChild(p);
+
+	var array = [];
+	this.dish = container.find(".dishName")
+	array.push(dish);
+
+
 }

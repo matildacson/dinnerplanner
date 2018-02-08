@@ -10,7 +10,7 @@ $(function() {
 	var dinnerPrintoutView = new DinnerPrintoutView($("#dinnerPrintoutView"), model);
 
 
-	// Index view
+	// Index page
 	$('#sidebarView').hide();
 	$('#dishSearchView').hide();
 	$('#dishItemView').hide();
@@ -20,6 +20,7 @@ $(function() {
 	$('#dishDetailsView').hide();
 	$('#topBarView').hide();
 
+	// Select dish page
 	var showSelectDishPage = function () {
 	 	$('#sidebarView').show();
 	 	$('#dishSearchView').show();
@@ -31,8 +32,48 @@ $(function() {
 	 	$('#topBarView').hide();
 	};
 
+	var showDinnerOverviewPage = function () {
+	 	$('#sidebarView').hide();
+	 	$('#dishSearchView').hide();
+	 	$('#dishItemView').hide();
+	 	$('#indexView').hide();
+	 	$('#dinnerOverviewView').show();
+	 	$('#dinnerPrintoutView').hide();
+	 	$('#dishDetailsView').hide();
+	 	$('#topBarView').show();
+	};
+
+	var showDishDetailsPage = function () {
+	 	$('#sidebarView').show();
+	 	$('#dishSearchView').hide();
+	 	$('#dishItemView').hide();
+	 	$('#indexView').hide();
+	 	$('#dinnerOverviewView').hide();
+	 	$('#dinnerPrintoutView').hide();
+	 	$('#dishDetailsView').show();
+	 	$('#topBarView').hide();
+	};
 //	model.addObserver(sidebarView);
+
+	//Index view
 	document.getElementById("createDinnerButton").addEventListener("click", showSelectDishPage, false);
+
+	//Controllers
+	var sidebarController = new SidebarController(sidebarView, model)
+	document.getElementById("sidebarButton").addEventListener("click", showDinnerOverviewPage, false);
+
+	//Overview view
+	document.getElementById("backButton").addEventListener("click", showSelectDishPage, false);
+
+	//Dish Details view
+	document.getElementById("dishImg").addEventListener("click", showDishDetailsPage, false);
+
+	//var selectedType = container.getElementById("searchDishType").option.selected="selected".innerHTML
+	//this.searchButton = container.find("#searchButton");
+	//this.searchButton.click(function() {model.getSelectedDishes(selectedType) } );
+
+	//Dish details view
+//	document.getElementById("backButton").addEventListener("click", showDishDetailsPage, false);
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
 	 * use the $('someSelector') to search for elements in the whole HTML.
