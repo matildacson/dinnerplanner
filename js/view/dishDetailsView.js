@@ -48,7 +48,7 @@ var DishDetailsView = function (container, model) {
 	total.innerHTML = "TOTAL:"
 
 	this.addToMenuButton = container.find("#addToMenu");
-	this.addToMenuButton.click(model.addDishToMenu(dish.id));
+	//this.addToMenuButton.click(model.addDishToMenu(dish.id));
 
 //	model.addObserver(this);
 }

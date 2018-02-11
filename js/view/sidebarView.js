@@ -1,5 +1,100 @@
 var SidebarView = function (container, model) {
+	var selectedDishes = container.find("#selectedDishes");
 
+	this.plusButton = container.find("#plusGuest");
+	this.minusButton = container.find("#minusGuest");
+
+	// Add this view as an observer to the model.
+	model.addObserver(this);
+
+	/**
+	* Creates new table data for the sidebar.
+	*/	
+	this.update = function() {
+		setNumberOfGuests();
+		removeRows();
+		addRows();
+	}
+
+	// Initialize the sidebar.
+	this.update();
+
+	/**
+	* Removes all current rows.
+	*/
+	function removeRows() {
+		while (selectedDishes.find("tr").length > 1) {
+			selectedDishes.find("tr:not(:first)").remove()
+		}
+	}
+
+	/**
+	* Creates rows for the table.
+	*/
+	function addRows() {
+		var allDishes = model.getFullMenu()
+		var allPrices = model.getTotalMenuPrice();
+
+		for (var i = 0; i < allDishes.length; i++) {
+			selectedDishes.append(createRow(allDishes[i], allPrices[i]));
+		}
+		selectedDishes.append(createLastRow());
+	}
+
+	/**
+	* Returns a row to the made from passed dish.
+	*/
+	function createRow(object, price) {
+		var dish = document.createElement("tr");
+		var dishName = document.createElement("td");
+		var priceCurrency = document.createElement("td")
+		var dishPrice = document.createElement("td");
+		dish.appendChild(dishName);
+		dish.appendChild(priceCurrency)
+		dish.appendChild(dishPrice); 
+		dishName.innerHTML = object.name;
+		dishPrice.innerHTML = price;
+		priceCurrency.innerHTML = "SEK";
+		return dish;
+	}
+
+	/**
+	* Returns the final row to the table.
+	*/
+	function createLastRow() {
+		var totalPriceRow = document.createElement("tr");	
+		var total = document.createElement("td")
+		var currency = document.createElement("td");
+		var totalMenuCost = document.createElement("td");
+		totalPriceRow.appendChild(total);
+		totalPriceRow.appendChild(currency);
+		totalPriceRow.appendChild(totalMenuCost);
+		totalMenuCost.innerHTML = getTotalPrice(model);
+		currency.innerHTML = "SEK";
+		total.innerHTML = "TOTAL:";
+		return totalPriceRow;
+	}
+
+	/**
+	* Returns the total price for the menu.
+	*/
+	function getTotalPrice() {
+		var allPrices = model.getTotalMenuPrice();
+		var totalPrice = 0;
+		for (var i = 0; i < allPrices.length; i++) {
+			totalPrice += allPrices[i];
+		}
+		return totalPrice;
+	}
+
+	/**
+	* Update total total number of guests.
+	*/
+	function setNumberOfGuests() {
+		container.find("#numberOfGuests").html(model.getNumberOfGuests());
+	}
+
+	/*
 	this.update = function(){	
 		//Number of guests
 		var numberOfGuests = container.find("#numberOfGuests");
@@ -41,29 +136,16 @@ var SidebarView = function (container, model) {
 		currency.innerHTML = "SEK";
 		total.innerHTML = "TOTAL:"
 	}
-
-	//this.update()
-/**	this.update = function (){
-		var numberOfGuests = container.find("#numberOfGuests");
-		numberOfGuests.html(model.getNumberOfGuests());
-		var newTotalPrice = 0
-		for (var i = 0; i < prices.length; i++){
-			prices[i].innerHTML = model.getTotalMenuPrice()[i];
-			newTotalPrice += model.getTotalMenuPrice()[i]
-		}
-		totalMenuCost.innerHTML = newTotalPrice;
-	}*/
+	
 	
 	model.addObserver(this);
 
 	// Add guest
 	this.plusButton = container.find("#plusGuest");
-	//this.plusButton.click(function() {model.setNumberOfGuests(model.getNumberOfGuests() + 1) } );
 
 	//Remove quest
 	this.minusButton = container.find("#minusGuest");
-//	this.minusButton.click(function() {model.setNumberOfGuests(model.getNumberOfGuests() - 1) } );
-	
+	*/
 	/**
 	 * When we want references to some view elements to be available from outside of view, we 
 	 * define them as this.someName. We don't need this in Lab 1 yet, but in Lab 2 it 
