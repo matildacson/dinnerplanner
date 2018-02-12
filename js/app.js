@@ -4,7 +4,7 @@ $(function() {
 
 	var sidebarView = new SidebarView($("#sidebarView"), model);
 	var dishSearchView = new DishSearchView($("#dishSearchView"), model);
-	var dishDetailsView= new DishDetailsView($("#dishDetailsView"), model);
+	var dishDetailsView= new DishDetailsView(model.getDish(1), $("#dishDetailsView"), model);
 	var topBarView = new TopBarView($("#topBarView"), model);
 	var dinnerOverviewView = new DinnerOverviewView($("#dinnerOverviewView"), model);
 	var dinnerPrintoutView = new DinnerPrintoutView($("#dinnerPrintoutView"), model);
@@ -43,7 +43,8 @@ $(function() {
 	 	$('#topBarView').show();
 	};
 
-	var showDishDetailsPage = function () {
+	showDishDetailsPage = function (dish) {
+		dishDetailsView.update(dish);
 	 	$('#sidebarView').show();
 	 	$('#dishSearchView').hide();
 	 	$('#dishItemView').hide();
@@ -66,7 +67,7 @@ $(function() {
 	document.getElementById("backButton").addEventListener("click", showSelectDishPage, false);
 
 	//Dish Details view
-	document.getElementById("dishImg").addEventListener("click", showDishDetailsPage, false);
+	//document.getElementById("dishImg").addEventListener("click", showDishDetailsPage, false);
 
 	//var selectedType = container.getElementById("searchDishType").option.selected="selected".innerHTML
 	//this.searchButton = container.find("#searchButton");

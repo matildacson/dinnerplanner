@@ -1,8 +1,19 @@
-var dishItemController = function(view, model) {
+var DishItemController = function(view, model) {
 
-	view.img.click(function() {
+	
+	console.log(view);
+
+	view.img.addEventListener("click", function() {
 		showDishDetailsPage(view.dish);
 	});
+	/*
+	view.img.click(function() {
+
+		addEventListener("click", showDishDetailsPage(view.dish), false)
+		showDishDetailsPage(view.dish);
+	});
+	*/
+	
 	
 	/*
 	view.plusButton.click(function(){
