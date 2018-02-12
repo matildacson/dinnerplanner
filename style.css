@@ -6,7 +6,7 @@ body{
 
 .container{
 	width: 80%;
-	background: #FFFFFF;
+	background: none;
 	margin-top: 50px;
 	margin-bottom: 20px;
 	padding-left: 0px;
@@ -68,17 +68,67 @@ table{
 	margin-top: 20px;
 }
 
-button{
-	margin: 20px;
+#sidebarView {
+background-color: #FFF;
+margin-right: 10px;
+padding: 20px;
 }
 
-#sidebarView {
-	background: none;
-	display: "";
+#dishSearchView {
+background: #FFF;
+padding: 20px;
+}
+
+#dinnerOverviewView {
+background: #FFF;
+padding: 20px;
+}
+
+#dishDetailsView {
+background: #FFF;
+padding: 20px;
+}
+#totalPriceView {
+margin-top: 10px;
+background: #FFF;
+padding: 20px;
+}
+
+#topBarView {
+background: #FFF;
+padding: 20px;
+margin-bottom: 10px;
+}
+
+#indexView {
+background: #FFF;
+padding: 20px;
 }
 
 #sidebarButton{
-	margin: 20px;
+margin: 20px;
+}
+
+#inputBar{
+background: #CCC;
+padding:5px;
+}
+
+#inputBar input{
+width: 200px;
+padding: 5px;
+display: inline-block;
+border: 0px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+#numberOfGuests{
+width: 20px;
+font-family: Futura;
+font-size: 30px;
+color: #9FF781;
+padding: 10px;
 }
 
 .vertical-align {
@@ -90,7 +140,35 @@ button{
 	margin-top:20px;
 }
 
+
+div.container div.row div.col-sm-3, div.container div.row div.col-sm-9{
+padding: 0px;
+}
+
+div.container div.row div.col-sm-9{
+background: #FFF;
+}
+
 #scroll{
 	overflow-y: scroll;
     height: 100%;
+}
+
+.dishPriceCol {
+width: 20px;
+}
+
+tfoot {
+border-top: 1px solid #000;
+font-style: bold;
+}
+
+.row{
+padding:0px;
+margin: 0px;
+}
+
+
+#sidebarDishOverview {
+width: 100%;
 }

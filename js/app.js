@@ -8,6 +8,7 @@ $(function() {
 	var topBarView = new TopBarView($("#topBarView"), model);
 	var dinnerOverviewView = new DinnerOverviewView($("#dinnerOverviewView"), model);
 	var dinnerPrintoutView = new DinnerPrintoutView($("#dinnerPrintoutView"), model);
+	var totalPriceView = new TotalPriceView($("#totalPriceView"), model);
 
 
 	// Index page
@@ -19,6 +20,7 @@ $(function() {
 	$('#dinnerPrintoutView').hide();
 	$('#dishDetailsView').hide();
 	$('#topBarView').hide();
+	$('#totalPriceView').hide();
 
 	// Select dish page
 	var showSelectDishPage = function () {
@@ -30,6 +32,7 @@ $(function() {
 	 	$('#dinnerPrintoutView').hide();
 	 	$('#dishDetailsView').hide();
 	 	$('#topBarView').hide();
+	 	$('#totalPriceView').hide();
 	};
 
 	var showDinnerOverviewPage = function () {
@@ -41,6 +44,7 @@ $(function() {
 	 	$('#dinnerPrintoutView').hide();
 	 	$('#dishDetailsView').hide();
 	 	$('#topBarView').show();
+		$('#totalPriceView').show();
 	};
 
 	var showDishDetailsPage = function () {

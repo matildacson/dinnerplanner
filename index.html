@@ -17,71 +17,92 @@
   	<div id="header"><center><h1>Dinner planner</h1></center>
 	</div>
 	<div class="container">
-		<div id="indexView">
-			<div class="introduction">
-				Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam nibh. Nunc varius facilisis eros. Sed erat. In in velit quis arcu ornare laoreet. Curabitur adipiscing luctus massa. Integer ut purus ac augue commodo commodo. Nunc nec mi eu justo tempor consectetuer.
+		<div class="row">
+			<div class="col-sm-3">
+				<div id ="sidebarView">
+					<div>
+						<center><h2>My Dinner</h2> 
+						Number of guests:
+						<br/>
+						<button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
+						<span id="numberOfGuests"></span>
+						<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button></center>
+					</div>
+					<table id="sidebarDishOverview">
+						<tr>
+							<th>Dish</th>
+							<th>Cost</th>
+						</tr>
+						<tbody id="selectedDishes"></tbody>
+						<tfoot>
+							<tr>
+								<td>Total:</td>
+								<td>SEK</td>
+								<td class="totalPriceCol"></td>
+							</tr>
+						</tfoot>
+					</table>
+					<div class="row">
+						<div class="col-sm-6"></div>
+						<div class="col-sm-6" id="totalDishCost"></div>
+					</div>
+					<center><button id="sidebarButton" type="button" class="btn btn-primary">Create Dinner</button></center>
+					
+				</div>
 			</div>
-			<div>
-				<button id="createDinnerButton" type="button" class="btn btn-primary">Create Dinner</button>
-			</div>
-		</div>
-		<div class="col-sm-3" id ="sidebarView">
-			<div>
-				<h2>My Dinner</h2> 
-				Number of guests: <span id="numberOfGuests"></span>
-				<br/>
-				<button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
-			</div>
-			<table id="selectedDishes">
-				<th>Dish</th>
-				<th>Cost</th>
-			</table>
-			<div class="row">
-				<div class="col-sm-6"></div>
-				<div class="col-sm-6" id="totalDishCost"></div>
-			</div>
-			<center><button id="sidebarButton" type="button" class="btn btn-primary">Create Dinner</button></center>
-			
-		</div>
-		<div class="col-sm-9" id="dishSearchView">
-			<div>
-				<h2>Find a dish</h2>
-				<input>
-				<select id="searchDishType" width="50px;">
-					<option value="Starter">Starter</option>
-					<option selected="selected" value="Main Dish">Main Dish</option>
-					<option value="Dessert">Dessert</option>
-				</select>
-				<button type="button" id="searchButton" class="btn btn-primary">Search</button>
-			</div>
-		</div>
-		<div id="dishDetailsView" class="col-sm-9">
-			<div class="col-sm-6">
-				<div><h2  id="nameDiv"></h2></div>
-				<div id="dishImg"></div>
-				<div id="description"></div>
-				<button type="button" class="btn btn-primary">Back to search</button>
+			<div class="col-sm-9" >
+				<div id="dishSearchView">
+					<div id="containerHeader">
+						<h2>Find a dish</h2>
+					</div>
+					<div id="inputBar">
+						<input placeholder="Search"/>
+						<select id="searchDishType">
+							<option value="All dishes">All dishes</option>
+							<option value="Starter">Starter</option>
+							<option value="Main Dish">Main Dish</option>
+							<option value="Dessert">Dessert</option>
+						</select>
+						<button type="button" id="searchButton" class="btn btn-primary">Search</button>
+					</div>
+				</div>
+				<div id="dishDetailsView">
+					<div class="col-sm-6">
+						<div><h2 id="nameDiv"></h2></div>
+						<div id="dishImg"></div>
+						<div id="description"></div>
+						<button type="button" class="btn btn-primary">Back to search</button>
 
+					</div>
+					<div class="col-sm-6 ingredientsDiv">
+						<h2 id="ingredientsHeader"></h2>
+						<table id="ingredientsTable"></table>
+						<center><button type="button" class="btn btn-primary" id="addToMenu">Add to menu</button></center>
+					</div>
+				</div>
 			</div>
-			<div class="col-sm-6 ingredientsDiv">
-				<h2 id="ingredientsHeader"></h2>
-				<table id="ingredientsTable"></table>
-				<center><button type="button" class="btn btn-primary" id="addToMenu">Add to menu</button></center>
+			<div id="indexView">
+				<center>
+					<div class="introduction">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam nibh. Nunc varius facilisis eros. Sed erat. In in velit quis arcu ornare laoreet. Curabitur adipiscing luctus massa. Integer ut purus ac augue commodo commodo. Nunc nec mi eu justo tempor consectetuer.
+					</div>
+					<div>
+						<button id="createDinnerButton" type="button" class="btn btn-primary">Create Dinner</button>
+					</div>
+				</center>
 			</div>
-		</div>
-		<div class="row" id="topBarView">
-			<div class="col-sm-6">
+			<div id="topBarView">
 				<h2>My dinner: <span id="numberOfGuests"></span> guests</h2>
+				<button class="btn btn-primary" id="backButton"><span class="glyphicon glyphicon-chevron-left"></span> Edit menu</button>
 			</div>
-			<div class="col-sm-6">
-				<button class="btn btn-primary" id="backButton">Go back and edit menu</button>
+			<div id="dinnerOverviewView">
 			</div>
-		</div>
-		<div class="row" id="dinnerOverviewView">
-		</div>
-		<div id="dinnerPrintoutView">
-       </div>
+			<div id="totalPriceView"><center>
+				<h2>Total price for dinner: <span id="totalPrice"></span> SEK</h2></center>
+			</div>
+			<div id="dinnerPrintoutView">
+	       </div>
+	   </div>
 	</div>
 
     <!-- jQuery -->
@@ -98,6 +119,7 @@
 	<script src="js/view/dishSearchView.js"></script>
 	<script src="js/view/sideBarView.js"></script>
 	<script src="js/view/topBarView.js"></script>
+	<script src="js/view/totalPriceView.js"></script>
 
 	<!-- Controllers -->
 	<script src="js/controllers/sidebarController.js"></script>

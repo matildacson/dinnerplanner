@@ -7,27 +7,7 @@ var DinnerOverviewView = function (container, model) {
 
 	// Pass all dishes in menu to getDishWindow()
 	for (var i = 0; i < dishes.length; i++) {
-		getDishWindow((dishes[i]), container, model);
+		DishItemView((dishes[i]), container, model);
 	}
 
-}
-
-var getDishWindow = function(dish, container, model) {
-	// Add a div to the div with id "dishItemView"
-	container.find("#dinnerOverviewView");
-	var div = document.createElement("div");
-	div.className = "col-sm-3";
-	container.append(div);
-
-	// Add image to the div
-	var img = document.createElement("img");
-	img.src = "images/"+dish.image;
-	img.style = "height: 200px; width: 100%; "
-	div.appendChild(img);
-
-	// Add text to the div
-	var p = document.createElement("p");
-	p.align = "center";
-	p.innerHTML = dish.name;
-	div.appendChild(p);
 }
