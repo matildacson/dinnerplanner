@@ -1,6 +1,9 @@
 var DishDetailsView = function (passed, container, model) {
 	var dish = passed;
 
+	/**
+	* Update the page with passed dish.
+	*/
 	this.update = function(newPassed) {
 		dish = newPassed;
 		removeRows();
@@ -8,21 +11,33 @@ var DishDetailsView = function (passed, container, model) {
 		setIngredients();
 	}
 
-	//this.update();
+	/**
+	* Add buttons to this view.
+	*/
 	this.addToMenuButton = container.find("#addToMenu");
+	this.goBackButton = container.find("button");
 
+	/**
+	* Remove current rows from view.
+	*/
 	function removeRows() {
 		while (container.find("tr").length > 0) {
 			container.find("tr:not(:first)").remove()
 		}
 	}
 
+	/**
+	* Set the middle part of the view.
+	*/
 	function setMiddle() {
 		container.find("#nameDiv").html(dish.name);
 		container.find("#dishImg").html("<img src='images/"+dish.image+"' img>");
 		container.find("#description").html(dish.description);
 	}
 
+	/**
+	* Set the ingredients part of the view.
+	*/
 	function setIngredients() {
 		container.find("#ingredientsHeader").html("Ingredients for " + model.getNumberOfGuests() + " people");
 		var ingredients = container.find("#ingredientsTable");
@@ -32,6 +47,9 @@ var DishDetailsView = function (passed, container, model) {
 		createLastRow(ingredients);
 	}
 
+	/**
+	* Create a row for the ingredients.
+	*/
 	function createRow(object, div) {
 		var ingredientRow = document.createElement("tr");
 		var ingredientQuantity = document.createElement("td");
@@ -52,6 +70,9 @@ var DishDetailsView = function (passed, container, model) {
 		ingredientRow.appendChild(ingredientPrice);
 	}
 
+	/**
+	* Create the last row of the ingredients part.
+	*/
 	function createLastRow(div) {
 		var totalPriceRow = document.createElement("tr");	
 		var emptyCell = document.createElement("td")
@@ -71,6 +92,9 @@ var DishDetailsView = function (passed, container, model) {
 		total.innerHTML = "TOTAL:"
 	}
 
+	/**
+	* Returns the total price of the menu.
+	*/
 	function getTotalPrice() {
 		var totalPrice = 0;
 		for (var i = 0; i < dish.ingredients.length; i++) {

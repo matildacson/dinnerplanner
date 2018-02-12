@@ -19,10 +19,4 @@ var DishItemView = function(dish, container, model) {
 	p.innerHTML = dish.name;
 	div.appendChild(p);
 
-	/*
-	var array = [];
-	this.dish = container.find(".dishName")
-	array.push(dish);
-	*/
-
 }

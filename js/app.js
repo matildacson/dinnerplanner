@@ -21,7 +21,7 @@ $(function() {
 	$('#topBarView').hide();
 
 	// Select dish page
-	var showSelectDishPage = function () {
+	showSelectDishPage = function () {
 	 	$('#sidebarView').show();
 	 	$('#dishSearchView').show();
 	 	$('#dishItemView').show();
@@ -67,6 +67,7 @@ $(function() {
 	document.getElementById("backButton").addEventListener("click", showSelectDishPage, false);
 
 	//Dish Details view
+	var dishDetailsController = new DishDetailsController(dishDetailsView, model);
 	//document.getElementById("dishImg").addEventListener("click", showDishDetailsPage, false);
 
 	//var selectedType = container.getElementById("searchDishType").option.selected="selected".innerHTML
