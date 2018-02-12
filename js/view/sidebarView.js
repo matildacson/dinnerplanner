@@ -1,14 +1,12 @@
 var SidebarView = function (container, model) {
-	var selectedDishes = container.find("#selectedDishes");
-
 	this.plusButton = container.find("#plusGuest");
 	this.minusButton = container.find("#minusGuest");
 
-	// Add this view as an observer to the model.
+	// Let this view observe the model.
 	model.addObserver(this);
 
 	/**
-	* Creates new table data for the sidebar.
+	* Updates table data for the sidebar.
 	*/	
 	this.update = function() {
 		setNumberOfGuests();
@@ -20,11 +18,18 @@ var SidebarView = function (container, model) {
 	this.update();
 
 	/**
+	* Update total total number of guests.
+	*/
+	function setNumberOfGuests() {
+		container.find("#numberOfGuests").html(model.getNumberOfGuests());
+	}
+
+	/**
 	* Removes all current rows.
 	*/
 	function removeRows() {
-		while (selectedDishes.find("tr").length > 1) {
-			selectedDishes.find("tr:not(:first)").remove()
+		while (container.find("tr").length > 1) {
+			container.find("tr:not(:first)").remove()
 		}
 	}
 
@@ -32,17 +37,18 @@ var SidebarView = function (container, model) {
 	* Creates rows for the table.
 	*/
 	function addRows() {
+		div = container.find("#selectedDishes");
 		var allDishes = model.getFullMenu()
 		var allPrices = model.getTotalMenuPrice();
 
 		for (var i = 0; i < allDishes.length; i++) {
-			selectedDishes.append(createRow(allDishes[i], allPrices[i]));
+			div.append(createRow(allDishes[i], allPrices[i]));
 		}
-		selectedDishes.append(createLastRow());
+		div.append(createLastRow());
 	}
 
 	/**
-	* Returns a row to the made from passed dish.
+	* Returns a row made from the passed object.
 	*/
 	function createRow(object, price) {
 		var dish = document.createElement("tr");
@@ -59,7 +65,7 @@ var SidebarView = function (container, model) {
 	}
 
 	/**
-	* Returns the final row to the table.
+	* Returns the final row of the table.
 	*/
 	function createLastRow() {
 		var totalPriceRow = document.createElement("tr");	
@@ -85,13 +91,6 @@ var SidebarView = function (container, model) {
 			totalPrice += allPrices[i];
 		}
 		return totalPrice;
-	}
-
-	/**
-	* Update total total number of guests.
-	*/
-	function setNumberOfGuests() {
-		container.find("#numberOfGuests").html(model.getNumberOfGuests());
 	}
 
 	/*
