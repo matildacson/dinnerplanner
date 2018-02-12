@@ -74,6 +74,12 @@ $(function() {
 	var dishDetailsController = new DishDetailsController(dishDetailsView, model);
 	//document.getElementById("dishImg").addEventListener("click", showDishDetailsPage, false);
 
+	//Back to search page
+	document.getElementById("backToSearch").addEventListener("click", showSelectDishPage, false);
+
+	// Add to menu
+	document.getElementById("addToMenu").addEventListener("click", showSelectDishPage, false);
+
 	//var selectedType = container.getElementById("searchDishType").option.selected="selected".innerHTML
 	//this.searchButton = container.find("#searchButton");
 	//this.searchButton.click(function() {model.getSelectedDishes(selectedType) } );
