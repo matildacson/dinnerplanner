@@ -71,8 +71,9 @@ $(function() {
 	document.getElementById("backButton").addEventListener("click", showSelectDishPage, false);
 
 	//Dish Details view
-	var dishDetailsController = new DishDetailsController(dishDetailsView, model);
+	var dishDetailsController = new DishDetailsController(dishDetailsView, dishSearchView, model);
 	//document.getElementById("dishImg").addEventListener("click", showDishDetailsPage, false);
+	var dishSearchController = new DishSearchController(dishSearchView, model);
 
 	//Back to search page
 	document.getElementById("backToSearch").addEventListener("click", showSelectDishPage, false);
