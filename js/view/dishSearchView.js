@@ -1,23 +1,32 @@
 var DishSearchView = function (container, model) { 
 
+	/**
+	* Make the button of this view reachable for the controllers.
+	*/
 	this.searchButton = container.find("#searchButton");
-//	var controllers = [];
-//	var views = [];
 
+	/**
+	* Creates an dishItemView and dishItemController for each
+	* dish in the passed array.
+	*/
 	var passDishes = function(dishes){
-
 		for (var i = 0; i < dishes.length; i++) {
 			var dishItemView = new DishItemView(dishes[i], container.find("#resultedDishes"), model);
-	//		views.push(dishItemView);
 			var dishItemController = new DishItemController(dishItemView, model);
-		//	controllers.push(dishItemController);
 		};
 	};
 
+	/**
+	* Delete the current dishes in this view.
+	*/
 	var deleteDishes = function(){
 	 	container.find("#resultedDishes").html("");
 	}
 
+	/**
+	* Update the current view based on typeValue and searchValue
+	* passed from a controller.
+	*/
 	this.update = function(typeValue, searchValue){
 		deleteDishes();
 		var dishes;

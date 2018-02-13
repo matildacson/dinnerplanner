@@ -1,6 +1,11 @@
 var DishDetailsView = function (container, model) {
+	
+	// The dish stored in this view.
 	var dish;
 
+	/**
+	* Add or remove this view as observer to model.
+	*/
 	this.addToObservers = function(){
 		model.addObserver(this);
 	}
@@ -17,17 +22,26 @@ var DishDetailsView = function (container, model) {
 		setMiddle();
 		setIngredients();
 	}
+
+	/**
+	* Update the current view.
+	*/
 	this.update = function(){
+		console.log("update in dishdetails");
 		removeRows();
 		setMiddle();
 		setIngredients();
 	}
 
+	/**
+	* Returns the dish for the current view.
+	*/
 	this.getDish = function(){
 		return dish;
 	}
+
 	/**
-	* Add buttons to this view.
+	* Make the buttongs of this view reachable for the controllers.
 	*/
 	this.addToMenuButton = container.find("#addToMenu");
 	this.goBackButton = container.find("button");
@@ -36,16 +50,18 @@ var DishDetailsView = function (container, model) {
 	* Remove current rows from view.
 	*/
 	function removeRows() {
-		while (container.find("tr").length > 0) {
-			container.find("tr:not(:first)").remove()
-		}
+		container.find("#nameDiv").html("");
+		container.find("#dishImg").html("");
+		container.find("#description").html("");
+		container.find("#ingredientsHeader").html("")
+		container.find("#ingredientsTable").html("");
 	}
 
 	/**
 	* Set the middle part of the view.
 	*/
 	function setMiddle() {
-		console.log(dish.name);
+		console.log(dish);
 		container.find("#nameDiv").html(dish.name);
 		container.find("#dishImg").html("<img src='images/"+dish.image+"' img>");
 		container.find("#description").html(dish.description);

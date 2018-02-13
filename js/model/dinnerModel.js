@@ -151,6 +151,8 @@ var DinnerModel = function() {
 
 	this.notifyObservers = function(){
 		for(var i =0; i < observers.length; i++){
+			console.log("notify");
+			console.log(observers[i]);
 			observers[i].update()
 
 		}
