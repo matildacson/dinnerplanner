@@ -1,13 +1,12 @@
-//ExampleViewController Object constructor
  var DishSearchController = function(view, model ) {
 
  	
  	var findSelect = function(){
  		var typeSearch = document.getElementById("searchDishType");
- 		var value = typeSearch[typeSearch.selectedIndex].value
- 		view.update(value);
+ 		var typeValue = typeSearch[typeSearch.selectedIndex].value
+ 		var searchValue = document.getElementById("searchForDish").value;
+ 		view.update(typeValue, searchValue);
  	};
-
 
  	view.searchButton.click(findSelect);
  	/*

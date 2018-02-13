@@ -16,24 +16,24 @@ var DishSearchView = function (container, model) {
 
 	var deleteDishes = function(){
 	 	container.find("#resultedDishes").html("");
-	};
+	}
 
-	this.update = function(value){
+	this.update = function(typeValue, searchValue){
 		deleteDishes();
 		var dishes;
-		if(value == "All dishes"){
-			dishes = model.getAllDishes("starter");
-			dishes = dishes.concat(model.getAllDishes("main dish"));
-			dishes = dishes.concat(model.getAllDishes("dessert"));
+		if(typeValue == "All dishes"){
+			dishes = model.getAllDishes("starter", searchValue);
+			dishes = dishes.concat(model.getAllDishes("main dish", searchValue));
+			dishes = dishes.concat(model.getAllDishes("dessert", searchValue));
 		};
-		if(value == "Starter"){
+		if(typeValue == "Starter"){
 			dishes = model.getAllDishes("starter");
 		};
-		if(value == "Main Dish"){
+		if(typeValue == "Main Dish"){
 			dishes = model.getAllDishes("main dish");
 		};
-		if(value == "Dessert"){
-			dishes = model.getAllDishes("dessert");
+		if(typeValue == "Dessert"){
+			dishes = model.getAllDishes("dessert", searchValue);
 		};
 		passDishes(dishes);
 
