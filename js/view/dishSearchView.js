@@ -1,24 +1,16 @@
 var DishSearchView = function (container, model) { 
 
-	this.addToObservers = function(){
-		this.update("All dishes");
-		model.addObserver(this);
-	}
-	this.removeFromObservers = function(){
-		model.removeObserver(this);
-	}
-
 	this.searchButton = container.find("#searchButton");
-	var controllers = [];
-	var views = [];
+//	var controllers = [];
+//	var views = [];
 
 	var passDishes = function(dishes){
 
 		for (var i = 0; i < dishes.length; i++) {
 			var dishItemView = new DishItemView(dishes[i], container.find("#resultedDishes"), model);
-			views.push(dishItemView);
+	//		views.push(dishItemView);
 			var dishItemController = new DishItemController(dishItemView, model);
-			controllers.push(dishItemController);
+		//	controllers.push(dishItemController);
 		};
 	};
 

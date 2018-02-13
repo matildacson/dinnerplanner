@@ -1,12 +1,11 @@
-var DishDetailsController = function(view, view2, model) {
+var DishDetailsController = function(view, model) {
 	
 	view.goBackButton.click(function(){
  		showSelectDishPage();
- 		view2.update("All dishes");
  	});
 
  	view.addToMenuButton.click(function(){
- 		model.addDishToMenu(view.dish.id);
+ 		model.addDishToMenu(view.getDish().id);
  		showSelectDishPage();
  	});
 }

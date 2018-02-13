@@ -1,5 +1,5 @@
-var DishDetailsView = function (passed, container, model) {
-	this.dish = passed;
+var DishDetailsView = function (container, model) {
+	var dish;
 
 	this.addToObservers = function(){
 		model.addObserver(this);
@@ -11,13 +11,21 @@ var DishDetailsView = function (passed, container, model) {
 	/**
 	* Update the page with passed dish.
 	*/
-	this.update = function(newPassed) {
-		this.dish = newPassed;
+	this.createPage = function(newPassed) {
+		dish = newPassed;
+		removeRows();
+		setMiddle();
+		setIngredients();
+	}
+	this.update = function(){
 		removeRows();
 		setMiddle();
 		setIngredients();
 	}
 
+	this.getDish = function(){
+		return dish;
+	}
 	/**
 	* Add buttons to this view.
 	*/
@@ -37,9 +45,10 @@ var DishDetailsView = function (passed, container, model) {
 	* Set the middle part of the view.
 	*/
 	function setMiddle() {
-		container.find("#nameDiv").html(this.dish.name);
-		container.find("#dishImg").html("<img src='images/"+this.dish.image+"' img>");
-		container.find("#description").html(this.dish.description);
+		console.log(dish.name);
+		container.find("#nameDiv").html(dish.name);
+		container.find("#dishImg").html("<img src='images/"+dish.image+"' img>");
+		container.find("#description").html(dish.description);
 	}
 
 	/**
@@ -48,8 +57,8 @@ var DishDetailsView = function (passed, container, model) {
 	function setIngredients() {
 		container.find("#ingredientsHeader").html("Ingredients for " + model.getNumberOfGuests() + " people");
 		var ingredients = container.find("#ingredientsTable");
-		for (var i = 0; i < this.dish.ingredients.length; i++) {
-			createRow(this.dish.ingredients[i], ingredients);
+		for (var i = 0; i < dish.ingredients.length; i++) {
+			createRow(dish.ingredients[i], ingredients);
 		}
 		createLastRow(ingredients);
 	}
@@ -104,8 +113,8 @@ var DishDetailsView = function (passed, container, model) {
 	*/
 	function getTotalPrice() {
 		var totalPrice = 0;
-		for (var i = 0; i < this.dish.ingredients.length; i++) {
-			totalPrice += this.dish.ingredients[i].price*model.getNumberOfGuests();
+		for (var i = 0; i < dish.ingredients.length; i++) {
+			totalPrice += dish.ingredients[i].price*model.getNumberOfGuests();
 		}
 		return totalPrice;
 	}
