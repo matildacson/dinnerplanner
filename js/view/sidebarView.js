@@ -1,12 +1,15 @@
 var SidebarView = function (container, model) {
 	
-
+	this.addToObservers = function(){
+		model.addObserver(this);
+		this.update();
+	}
+	this.removeFromObservers = function(){
+		model.removeObserver(this);
+	}
 
 	this.plusButton = container.find("#plusGuest");
 	this.minusButton = container.find("#minusGuest");
-
-	// Let this view observe the model.
-	model.addObserver(this);
 
 	/**
 	* Updates table data for the sidebar.
@@ -16,9 +19,6 @@ var SidebarView = function (container, model) {
 		removeRows();
 		addRows();
 	}
-
-	// Initialize the sidebar.
-	this.update();
 
 	/**
 	* Update total total number of guests.

@@ -1,5 +1,13 @@
 var DishSearchView = function (container, model) { 
 
+	this.addToObservers = function(){
+		this.update("All dishes");
+		model.addObserver(this);
+	}
+	this.removeFromObservers = function(){
+		model.removeObserver(this);
+	}
+
 	this.searchButton = container.find("#searchButton");
 	var controllers = [];
 	var views = [];

@@ -128,6 +128,14 @@ var DinnerModel = function() {
 		observers.push(observer);
 	}
 
+	this.removeObserver = function(observer){
+		for(var i =0; i < observers.length; i++ ){
+			if(observers[i] == observer){
+				observers.splice(i, 1)
+			}
+		}
+	}
+
 	this.notifyObservers = function(){
 		for(var i =0; i < observers.length; i++){
 			observers[i].update()

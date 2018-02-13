@@ -1,6 +1,15 @@
 var TotalPriceView = function (container, model) { 
 	//add a dish to menu
 	//model.addDishToMenu(1);
+
+	this.addToObservers = function(){
+		model.addObserver(this);
+		this.update()
+	}
+	this.removeFromObservers = function(){
+		model.removeObserver(this);
+	}
+
 	var prices = model.getTotalMenuPrice();
 	
 	var totalPrice = 0
@@ -18,9 +27,6 @@ var TotalPriceView = function (container, model) {
 		};
 		container.find("#totalPrice").html(newTotalPrice);
 	}
-
-
-	model.addObserver(this);
 
 
 };

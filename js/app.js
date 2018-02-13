@@ -33,6 +33,10 @@ $(function() {
 	 	$('#dishDetailsView').hide();
 	 	$('#topBarView').hide();
 	 	$('#totalPriceView').hide();
+	 	dishDetailsView.removeFromObservers();
+		topBarView.removeFromObservers();
+		totalPriceView.removeFromObservers();
+		sidebarView.addToObservers();
 	};
 
 	var showDinnerOverviewPage = function () {
@@ -45,10 +49,12 @@ $(function() {
 	 	$('#dishDetailsView').hide();
 	 	$('#topBarView').show();
 		$('#totalPriceView').show();
+		sidebarView.removeFromObservers();
+		topBarView.addToObservers();
+		totalPriceView.addToObservers();
 	};
 
 	showDishDetailsPage = function (dish) {
-		dishDetailsView.update(dish);
 	 	$('#sidebarView').show();
 	 	$('#dishSearchView').hide();
 	 	$('#dishItemView').hide();
@@ -57,6 +63,10 @@ $(function() {
 	 	$('#dinnerPrintoutView').hide();
 	 	$('#dishDetailsView').show();
 	 	$('#topBarView').hide();
+	 	
+		dishDetailsView.addToObservers();
+		dishDetailsView.update(dish);
+	
 	};
 //	model.addObserver(sidebarView);
 
