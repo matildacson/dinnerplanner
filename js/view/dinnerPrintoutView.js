@@ -1,37 +1,54 @@
 var DinnerPrintoutView = function (container, model) { 
 	//add a dish to menu
 
-	// get all dishes in menu
-	var dishes = model.getFullMenu();
+	function removeDishes(){
+		container.html("");
+	}
 
-	// Pass all dishes in menu to getDishWindow()
-	for (var i = 0; i < dishes.length; i++) {
-		var dishRow = document.createElement("div");
-		dishRow.className = "row";
-		dishRow.id = "dishRow";
-		var imgCol = document.createElement("div");
-		imgCol.className = "col-sm-3";
-		var summaryCol = document.createElement("div");
-		summaryCol.className = "col-sm-6"
-		var preparationCol = document.createElement("div");
-		preparationCol.className = "col-sm-3";
-		container.append(dishRow);
-		dishRow.appendChild(imgCol);
-		dishRow.appendChild(summaryCol);
-		dishRow.appendChild(preparationCol);
+	this.addToObservers = function(){
+		model.addObserver(this);
+		this.update()
+	}
+	this.removeFromObservers = function(){
+		model.removeObserver(this);
+	}
 
-		//image
-		var img = document.createElement("img");
-		img.src = "images/"+dishes[i].image 
-		imgCol.appendChild(img);
+	this.update = function(){
+		
+		removeDishes();
 
-		//summary
-		var summary = dishes[i].name
-		summaryCol.innerHTML = summary;
+		// get all dishes in menu
+		var dishes = model.getFullMenu();
 
-		//preparation
-		var preparation = dishes[i].description;
-		preparationCol.innerHTML = preparation;
+		// Pass all dishes in menu to getDishWindow()
+		for (var i = 0; i < dishes.length; i++) {
+			var dishRow = document.createElement("div");
+			dishRow.className = "row";
+			dishRow.id = "dishRow";
+			var imgCol = document.createElement("div");
+			imgCol.className = "col-sm-3";
+			var summaryCol = document.createElement("div");
+			summaryCol.className = "col-sm-6"
+			var preparationCol = document.createElement("div");
+			preparationCol.className = "col-sm-3";
+			container.append(dishRow);
+			dishRow.appendChild(imgCol);
+			dishRow.appendChild(summaryCol);
+			dishRow.appendChild(preparationCol);
+
+			//image
+			var img = document.createElement("img");
+			img.src = "images/"+dishes[i].image 
+			imgCol.appendChild(img);
+
+			//summary
+			var summary = dishes[i].name
+			summaryCol.innerHTML = summary;
+
+			//preparation
+			var preparation = dishes[i].description;
+			preparationCol.innerHTML = preparation;
+		}
 
 
 	}

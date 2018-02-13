@@ -13,6 +13,8 @@ var DishDetailsView = function (container, model) {
 		model.removeObserver(this);
 	}
 
+	this.backToSearch = container.find("#backToSearch");
+
 	/**
 	* Update the page with passed dish.
 	*/
@@ -44,7 +46,7 @@ var DishDetailsView = function (container, model) {
 	* Make the buttongs of this view reachable for the controllers.
 	*/
 	this.addToMenuButton = container.find("#addToMenu");
-	this.goBackButton = container.find("button");
+	this.goBackButton = container.find("backToMenu");
 
 	/**
 	* Remove current rows from view.

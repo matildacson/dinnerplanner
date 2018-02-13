@@ -2,12 +2,30 @@ var DinnerOverviewView = function (container, model) {
 	//add a dish to menu
 	//model.addDishToMenu(1);
 
-	// get all dishes in menu
-	var dishes = model.getFullMenu();
+	this.addToObservers = function(){
+		model.addObserver(this);
+		this.update()
+	}
+	this.removeFromObservers = function(){
+		model.removeObserver(this);
+	}
 
-	// Pass all dishes in menu to getDishWindow()
-	for (var i = 0; i < dishes.length; i++) {
-		DishItemView((dishes[i]), container, model);
+	function removeDishes(){
+		container.html("");
+	}
+
+	this.backButton = container.find("#backButton");
+
+	// get all dishes in menu
+	this.update = function(){
+		removeDishes();
+		var dishes = model.getFullMenu();
+
+		// Pass all dishes in menu to getDishWindow()
+		for (var i = 0; i < dishes.length; i++) {
+			DishItemView((dishes[i]), container, model);
+		}
+
 	}
 
 }

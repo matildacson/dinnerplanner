@@ -46,7 +46,7 @@
 						<div class="col-sm-6"></div>
 						<div class="col-sm-6" id="totalDishCost"></div>
 					</div>
-					<center><button id="sidebarButton" type="button" class="btn btn-primary">Create Dinner</button></center>
+					<button id="createDinnerButton" type="button" class="btn btn-primary">Create Dinner</button>
 					
 				</div>
 			</div>
@@ -88,18 +88,19 @@
 					Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam nibh. Nunc varius facilisis eros. Sed erat. In in velit quis arcu ornare laoreet. Curabitur adipiscing luctus massa. Integer ut purus ac augue commodo commodo. Nunc nec mi eu justo tempor consectetuer.
 					</div>
 					<div>
-						<button id="createDinnerButton" type="button" class="btn btn-primary">Create Dinner</button>
+						<button id="beginButton" type="button" class="btn btn-primary">Create Dinner</button>
 					</div>
 				</center>
 			</div>
 			<div id="topBarView">
 				<h2>My dinner: <span id="numberOfGuests"></span> guests</h2>
-				<button class="btn btn-primary" id="backButton"><span class="glyphicon glyphicon-chevron-left"></span> Edit menu</button>
+				<button class="btn btn-primary" id="editDinnerButton"><span class="glyphicon glyphicon-chevron-left"></span> Edit menu</button>
 			</div>
 			<div id="dinnerOverviewView">
 			</div>
 			<div id="totalPriceView"><center>
-				<h2>Total price for dinner: <span id="totalPrice"></span> SEK</h2></center>
+				<h2>Total price for dinner: <span id="totalPrice"></span> SEK</h2>
+				<br><button class="btn btn-primary" id="printFullRecipe">Print full recipe</button></div></center>
 			</div>
 			<div id="dinnerPrintoutView">
 	       </div>
@@ -127,6 +128,9 @@
 	<script src="js/controllers/dishItemController.js"></script>
 	<script src="js/controllers/dishDetailsController.js"></script>
 	<script src="js/controllers/dishSearchController.js"></script>
+	<script src="js/controllers/totalPriceController.js"></script>
+	<script src="js/controllers/overviewController.js"></script>
+	<script src="js/controllers/topbarController.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
 
   </body>

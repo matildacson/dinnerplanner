@@ -10,7 +10,6 @@ $(function() {
 	var dinnerPrintoutView = new DinnerPrintoutView($("#dinnerPrintoutView"), model);
 	var totalPriceView = new TotalPriceView($("#totalPriceView"), model);
 
-
 	// Index page
 	$('#sidebarView').hide();
 	$('#dishSearchView').hide();
@@ -39,7 +38,7 @@ $(function() {
 		sidebarView.addToObservers();
 	};
 
-	var showDinnerOverviewPage = function () {
+	showDinnerOverviewPage = function () {
 	 	$('#sidebarView').hide();
 	 	$('#dishSearchView').hide();
 	 	$('#dishItemView').hide();
@@ -52,6 +51,7 @@ $(function() {
 		sidebarView.removeFromObservers();
 		topBarView.addToObservers();
 		totalPriceView.addToObservers();
+		dinnerOverviewView.addToObservers();
 	};
 
 	showDishDetailsPage = function (dish) {
@@ -64,40 +64,26 @@ $(function() {
 	 	$('#topBarView').hide();
 		dishDetailsView.createPage(dish);
 		dishDetailsView.addToObservers();
-	
 	};
-//	model.addObserver(sidebarView);
+
+	showDinnerPrintoutPage = function () {
+	 	$('#dinnerOverviewView').hide();
+	 	$('#dinnerPrintoutView').show();
+	 	$('#topBarView').show();
+	 	$('#totalPriceView').hide();
+	 	dinnerPrintoutView.addToObservers();
+	};
 
 	//Index view
-	document.getElementById("createDinnerButton").addEventListener("click", showSelectDishPage, false);
+	document.getElementById("beginButton").addEventListener("click", showSelectDishPage, false);
 
 	//Controllers
 	var sidebarController = new SidebarController(sidebarView, model)
-	document.getElementById("sidebarButton").addEventListener("click", showDinnerOverviewPage, false);
-
-	//Overview view
-	document.getElementById("backButton").addEventListener("click", showSelectDishPage, false);
-
-	//Dish Details view
+	var totalPriceController = new TotalPriceController(totalPriceView, model);
+	var overviewController = new OverviewController(dinnerOverviewView, model);
+	var topbarController = new TopbarController(topBarView, model);
 	var dishDetailsController = new DishDetailsController(dishDetailsView, model);
-	//document.getElementById("dishImg").addEventListener("click", showDishDetailsPage, false);
 	var dishSearchController = new DishSearchController(dishSearchView, model);
-
-	//Back to search page
-	document.getElementById("backToSearch").addEventListener("click", showSelectDishPage, false);
-
-	//var selectedType = container.getElementById("searchDishType").option.selected="selected".innerHTML
-	//this.searchButton = container.find("#searchButton");
-	//this.searchButton.click(function() {model.getSelectedDishes(selectedType) } );
-
-	//Dish details view
-//	document.getElementById("backButton").addEventListener("click", showDishDetailsPage, false);
-	/**
-	 * IMPORTANT: app.js is the only place where you are allowed to
-	 * use the $('someSelector') to search for elements in the whole HTML.
-	 * In other places you should limit the search only to the children 
-	 * of the specific view you're working with (see exampleView.js).
-	 */
 
 
 });

@@ -1,8 +1,5 @@
 var DishSearchView = function (container, model) { 
 
-	/**
-	* Make the button of this view reachable for the controllers.
-	*/
 	this.searchButton = container.find("#searchButton");
 
 	/**

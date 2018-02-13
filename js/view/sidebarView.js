@@ -10,6 +10,7 @@ var SidebarView = function (container, model) {
 
 	this.plusButton = container.find("#plusGuest");
 	this.minusButton = container.find("#minusGuest");
+	this.createDinnerButton = container.find("#createDinnerButton");
 
 	/**
 	* Updates table data for the sidebar.

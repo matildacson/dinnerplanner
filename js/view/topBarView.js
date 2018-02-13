@@ -8,6 +8,8 @@ var TopBarView = function(container, model) {
 		model.removeObserver(this);
 	}
 
+	this.editDinnerButton = container.find("#editDinnerButton");
+
 	var numberOfGuests = container.find("#numberOfGuests");	
 	numberOfGuests.html(model.getNumberOfGuests());
 

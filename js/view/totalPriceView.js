@@ -10,6 +10,8 @@ var TotalPriceView = function (container, model) {
 		model.removeObserver(this);
 	}
 
+	this.printFullRecipeButton = container.find("#printFullRecipe");
+
 	var prices = model.getTotalMenuPrice();
 	
 	var totalPrice = 0
