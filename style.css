@@ -1,122 +1,127 @@
+
+/*Overall style*/ 
+
 body{
 	background-image: url("images/tomatoes.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
-.container{
-	width: 80%;
-	background: none;
-	margin-top: 50px;
-	margin-bottom: 20px;
-	padding-left: 0px;
-	padding-right: 0px;
-	padding-bottom:20px;
-}
-
-#header{
-	width: 100%;
-	padding: 10px;
-	background: #000;
-	opacity: 0.8;
-}
-
 h1{
-	font-family: Futura;
-	font-size: 30px;
-	color: #FFF;
+font-family: Futura;
+font-size: 30px;
+color: #FFF;
 }
 
 h2{
-	font-family: Futura;
-	font-size: 20px;
+font-family: Futura;
+font-size: 20px;
+}
+h3{
+font-family: Futura;
+font-size: 15px;
+}
+
+p{
+font-family: Futura;
+}
+
+.container{
+width: 80%;
+background: none;
+margin-top: 50px;
+margin-bottom: 20px;
+padding-left: 0px;
+padding-right: 0px;
+padding-bottom:30px;
+}
+
+.ordinaryButton{
+background-color: #663333;
+color: #FFF;
+font-family: Futura;
+text-align: center;
+padding: 5px 20px 5px 20px;
+border: 0px;
+border-radius: 5px;
+}
+
+.ordinaryButton:hover {
+background-color: #333333;
+}
+
+#header{
+width: 100%;
+padding: 10px;
+background: #000;
+opacity: 0.8;
+text-align: center;
+}
+
+
+/*Index view page*/
+
+#indexView {
+background: #FFF;
+padding: 50px;
 }
 
 .introduction{
-	font-family: Garamond;
-	font-size: 18px;
-	margin-bottom: 50px;
+padding-left:200px;
+padding-right: 200px;
+text-align: center;
 }
 
-.indexView{
-	padding-left:200px;
-	padding-right: 200px;
-	padding-top: 100px;
-	padding-bottom: 100px;
-
+.introduction p{
+font-family: Futura;
+font-size: 14px;
 }
 
-table{
-	width:100%;
-	margin-top: 20px;
 
-}
-
-.ingredientsDiv{
-	background: #fff;
-	margin-top:10px;
-	border: 2px dashed #CCC;
-	border-radius: 20px;
-	padding-bottom: 20px;
-}
-
-#ingredientsTable {
-	margin: 10px;
-	font-family: Futura;
-	font-size: 14px;
-	width:100%;
-	margin-top: 20px;
-}
+/* Sidebar view*/
 
 #sidebarView {
 background-color: #FFF;
 margin-right: 10px;
 padding: 20px;
+text-align: center;
 }
+
+#numberOfGuests{
+width: 20px;
+font-family: Futura;
+font-size: 20px;
+color: #000;
+}
+
+#plusGuest, #minusGuest{
+color: #000;
+background-color: transparent;
+size: 30%;
+padding-bottom: 10px;
+}
+
+#sidebarDishOverview {
+width:100%;
+margin-top: 20px;
+text-align: left;
+font-family: Futura;
+}
+
+
+/* Dish search view*/ 
 
 #dishSearchView {
 background: #FFF;
 padding: 20px;
 }
 
-#dinnerPrintoutView {
-background: #FFF;
-padding: 20px;
-}
-
-#dinnerOverviewView {
-background: #FFF;
-padding: 20px;
-}
-
-#dishDetailsView {
-background: #FFF;
-padding: 20px;
-}
-#totalPriceView {
-margin-top: 10px;
-background: #FFF;
-padding: 20px;
-}
-
-#topBarView {
-background: #FFF;
-padding: 20px;
-margin-bottom: 10px;
-}
-
-#indexView {
-background: #FFF;
-padding: 20px;
-}
-
-#sidebarButton{
-margin: 20px;
-}
-
 #inputBar{
-background: #CCC;
-padding:5px;
+padding:10px;
+margin-bottom: 10px;
+background: #f2f2f2;
+border: 0px;
+border-radius: 5px;
 }
 
 #inputBar input{
@@ -126,54 +131,92 @@ display: inline-block;
 border: 0px solid #ccc;
 border-radius: 4px;
 box-sizing: border-box;
-}
-
-#numberOfGuests{
-width: 20px;
+margin-right: 10px;
 font-family: Futura;
-font-size: 30px;
-color: #9FF781;
-padding: 10px;
 }
 
-.vertical-align {
-    display: flex;
-    align-items: center; 
+
+#searchDishType{
+background: #fff;
+height: 30px;
+overflow: hidden;
+border: 0px;
+font-family: futura;
+margin-right: 10px; 
 }
 
-#dishRow{
-	margin-top:20px;
+#dishDiv{
+display:inline-block; 
+margin-left:10px;"
 }
 
+/* Dinner Printout view*/
+
+#dinnerPrintoutView {
+background: #FFF;
+padding: 20px;
+}
+
+/*Dinner Overview view*/
+
+#dinnerOverviewView {
+background: #FFF;
+padding: 20px;
+}
+
+/*Dish Details View*/
+
+#dishDetailsView {
+background: #FFF;
+padding: 20px;
+}
+
+#nameDiv{
+}
+
+
+/* Ingredients square */
+
+.ingredientsDiv{
+background: #f2f2f2;
+border: 0px;
+border-radius: 5px;
+padding-bottom: 20px;
+}
+
+#ingredientsTable {
+margin: 10px;
+font-family: Futura;
+font-size: 14px;
+width:100%;
+margin-top: 20px;
+}
+
+#ingredientsTable tfoot{
+border-top: 1px solid #000;
+}
+
+/* total price view*/
+
+#totalPriceView {
+margin-top: 10px;
+background: #FFF;
+padding: 20px;
+}
+
+/* topbar vie*/
+#topBarView {
+background: #FFF;
+padding: 20px;
+margin-bottom: 10px;
+text-align: center;
+}
 
 div.container div.row div.col-sm-3, div.container div.row div.col-sm-9{
-padding: 0px;
+padding: 0px 0px 30px 0px;
 }
 
 div.container div.row div.col-sm-9{
 background: #FFF;
 }
 
-#scroll{
-	overflow-y: scroll;
-    height: 100%;
-}
-
-.dishPriceCol {
-width: 20px;
-}
-
-tfoot {
-border-top: 1px solid #000;
-font-style: bold;
-}
-
-.row{
-padding:0px;
-margin: 0px;
-}
-
-
-#sidebarDishOverview {
-width: 100%;
-}

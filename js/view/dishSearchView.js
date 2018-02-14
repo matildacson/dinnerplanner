@@ -1,6 +1,8 @@
 var DishSearchView = function (container, model) { 
 
 	this.searchButton = container.find("#searchButton");
+	this.dropdownValue = container.find("#searchDishType");
+	this.searchValue = container.find("#searchForDish");
 
 	/**
 	* Creates an dishItemView and dishItemController for each

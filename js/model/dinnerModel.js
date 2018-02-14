@@ -11,7 +11,7 @@ var DinnerModel = function() {
 
 	this.setNumberOfGuests = function(num) {
 		numGuests = num;
-		this.notifyObservers();
+		notifyObservers();
 	}
 	
 	this.getNumberOfGuests = function() {
@@ -80,7 +80,7 @@ var DinnerModel = function() {
 		}
 
 		selectedDishes.push(id);
-		this.notifyObservers();
+		notifyObservers();
 		
 	}
 
@@ -149,10 +149,8 @@ var DinnerModel = function() {
 		}
 	}
 
-	this.notifyObservers = function(){
+	var notifyObservers = function(){
 		for(var i =0; i < observers.length; i++){
-			console.log("notify");
-			console.log(observers[i]);
 			observers[i].update()
 
 		}
