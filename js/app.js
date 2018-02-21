@@ -86,4 +86,14 @@ $(function() {
 	var dishSearchController = new DishSearchController(dishSearchView, model);
 
 
+/* 	$(document).ajaxStart(function(){
+ 		console.log("hello")
+ 		$('#loading').show()
+ 	})
+
+ 	$(document).ajaxComplete(function(){
+ 		$('#loading').hide()
+ 	})*/
+
+
 });

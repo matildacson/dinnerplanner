@@ -22,12 +22,7 @@ var TotalPriceView = function (container, model) {
 	container.find("#totalPrice").html(totalPrice);
 
 	this.update = function() {
-		var prices = model.getTotalMenuPrice();
-		var newTotalPrice = 0
-		for(var i=0; i < prices.length; i++){
-			newTotalPrice += prices[i]; 
-		};
-		container.find("#totalPrice").html(newTotalPrice);
+		container.find("#totalPrice").html(model.getTotalMenuPrice());
 	}
 
 

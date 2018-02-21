@@ -1,8 +1,9 @@
 //ExampleViewController Object constructor
  var SidebarController = function(view, model) {
- 	
+
+ 	var dishRows = view.rows;
+
  	view.plusButton.click(function(){
- 		console.log("plus 1");
  		model.setNumberOfGuests(model.getNumberOfGuests() + 1);
  	});
 

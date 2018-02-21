@@ -5,13 +5,17 @@ var DinnerModel = function() {
 	// and selected dishes for the dinner menu
 
 	var selectedDishes = [];
-	var numGuests = 10;
+	var selectedDishesDetails = [];
+	var numGuests = 4;
 	var observers = [];
 
 
 	this.setNumberOfGuests = function(num) {
-		numGuests = num;
-		notifyObservers();
+		if (num >=0){
+			numGuests = num;
+			notifyObservers();
+		}
+
 	}
 	
 	this.getNumberOfGuests = function() {
@@ -31,13 +35,12 @@ var DinnerModel = function() {
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		//TODO Lab 1
-		var menu = [];
-		for (var i = 0; i < selectedDishes.length; i++) {
-			var dish = this.getDish(selectedDishes[i]);
-			menu.push(dish);
-		}
-		return menu
+		return selectedDishes;
+	}
+
+	this.getFullDetails = function() {
+		return selectedDishesDetails;
+
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
@@ -51,68 +54,52 @@ var DinnerModel = function() {
 		return ingredients;
 	}
 
-	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
+	//Returns the total price of the menu (all the ingredients multiplied by number of guests)
 	this.getTotalMenuPrice = function() {
-		//TODO Lab 1
-		var total = [];
-		var allIngredients = this.getAllIngredients();
-		for (var i = 0; i < allIngredients.length; i++){
-			var dishPrice = 0;
-				for(var j = 0; j < allIngredients[i].length; j++) {
-					var ingredientPrice = allIngredients[i][j].price;
-					dishPrice += (ingredientPrice * numGuests);
-				}
-			total.push(dishPrice);
-		}
-		return total;
+		totalCost = 0;
+		for(var i = 0; i < selectedDishesDetails.length; i++) {
+			totalCost += selectedDishesDetails[i].pricePerServing;
+		} 
+		return totalCost* this.getNumberOfGuests();		
 	}
 
-	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
-	//it is removed from the menu and the new one added.
-	this.addDishToMenu = function(id) {
+	//Adds the passed dish to the menu. 
+	this.addDishToMenu = function(dish) {
 		//TODO Lab 1
-		var type = this.getDish(id).type;
-
-		for(var i = 0; i < selectedDishes.length; i++) {
-			if (type == this.getDish(selectedDishes[i]).type) {
-				selectedDishes.splice(i, 1);
-			}
-		}
-
-		selectedDishes.push(id);
-		notifyObservers();
-		
+		this.getDishDetails(dish.id, function(details){
+			selectedDishesDetails.push(details)
+			selectedDishes.push(dish);
+			notifyObservers();
+		})
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
 		for(var i = 0; i < selectedDishes.length; i++) {
-			if(selectedDishes[i] == id){
-				selectedDishes.splice(i, 1)
+			if(selectedDishes[i].id == id){
+				selectedDishes.splice(i, 1);
+				selectedDishesDetails.splice(i, 1);
+				notifyObservers();
 			}
 		}
 	}
 
-	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
-	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
-	//if you don't pass any filter all the dishes will be returned
-	this.getAllDishes = function (type,filter) {
-	  return dishes.filter(function(dish) {
-		var found = true;
-		if(filter){
-			found = false;
-			dish.ingredients.forEach(function(ingredient) {
-				if(ingredient.name.indexOf(filter)!=-1) {
-					found = true;
-				}
-			});
-			if(dish.name.indexOf(filter) != -1)
-			{
-				found = true;
-			}
-		}
-	  	return dish.type == type && found;
-	  });	
+	this.getAllDishes = function (type, searchValue, callback, errorCallback) {
+		var urlQuery = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/search?type="+type+"&number=100&query="+searchValue;
+
+		$.ajax( {
+		   url: urlQuery,
+		   headers: {
+		     'X-Mashape-Key': "Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB",
+		   },
+		   success: function(data) {
+		     callback(data)
+		   },
+		   error: function(error) {
+		     errorCallback(error)
+		   }
+
+		}) 
 	}
 
 	//function that returns a dish of specific ID
@@ -122,6 +109,24 @@ var DinnerModel = function() {
 				return dishes[key];
 			}
 		}
+	}
+
+	this.getDishDetails = function (id, callback, errorCallback) {
+		var urlQuery = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/"+id+"/information";
+
+		$.ajax( {
+		   url: urlQuery,
+		   headers: {
+		     'X-Mashape-Key': "Qu9grxVNWpmshA4Kl9pTwyiJxVGUp1lKzrZjsnghQMkFkfA4LB",
+		   },
+		   success: function(data) {
+		     callback(data)
+		   },
+		   error: function(error) {
+		     errorCallback(error)
+		   }
+
+		}) 
 	}
 
 

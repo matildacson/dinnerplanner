@@ -30,15 +30,17 @@
 					</div>	
 					<table id="sidebarDishOverview">
 						<tr>
+							<th></th>
 							<th>Dish</th>
 							<th>Cost</th>
-							<th></th>
+							
 						</tr>
 						<tbody id="selectedDishes"></tbody>
 						<tfoot>
 							<tr>
+								
+								<td></td>
 								<td>Total:</td>
-								<td>SEK</td>
 								<td class="totalPriceCol"></td>
 							</tr>
 						</tfoot>
@@ -55,22 +57,48 @@
 					<div id="inputBar">
 						<input id="searchForDish" placeholder="Search for a dish..."/>
 						<select id="searchDishType">
-							<option value="All dishes">All dishes</option>
-							<option value="Starter">Starter</option>
-							<option value="Main Dish">Main Dish</option>
+							<option value="">All dishes</option>
+							<option value="Appetizer">Appetizer</option>
+							<option value="Main Course">Main Course</option>
 							<option value="Dessert">Dessert</option>
+							<option value="Salad">Salad</option>
+							<option value="Side Dish">Side Dish</option>
+							<option value="Bread">Bread</option>
+							<option value="Breakfast">Breakfast</option>
+							<option value="Soup">Soup</option>
+							<option value="Beverage">Beverage</option>
+							<option value="Sauce">Sauce</option>
+							<option value="Drink">Drink</option>
 						</select>
 						<button type="button" id="searchButton" class="ordinaryButton">Search 
 							<span class="glyphicon glyphicon-search"> </span></button>
 					</div>
 					<div id="resultedDishes"></div>
+					<div id="loading">
+						<div class="sk-folding-cube">
+	        				<div class="sk-cube1 sk-cube"></div>
+	        				<div class="sk-cube2 sk-cube"></div>
+	        				<div class="sk-cube4 sk-cube"></div>
+	       					<div class="sk-cube3 sk-cube"></div>
+      					</div>
+					</div>
+					
 				</div>
 				<div id="dishDetailsView">
+					<div id="loading">
+						<div class="sk-folding-cube">
+	        				<div class="sk-cube1 sk-cube"></div>
+	        				<div class="sk-cube2 sk-cube"></div>
+	        				<div class="sk-cube4 sk-cube"></div>
+	       					<div class="sk-cube3 sk-cube"></div>
+      					</div>
+					</div>
 					<div><h2 id="nameDiv"></h2></div>
 					<div class="col-sm-6">
-						<div id="dishImg"></div>
+						<div id="dishDetailsImg"></div>
 						<div id="description"></div>
-						<button type="button" class="ordinaryButton" id="backToSearch"><span class="glyphicon glyphicon-chevron-left"></span> Back to search</button>
+						<button type="button" class="ordinaryButton" id="backToSearch"><span class="glyphicon glyphicon-chevron-left">
+						</span> Back to search</button>
 
 					</div>
 					<div class="col-sm-6 ingredientsDiv">
@@ -115,6 +143,7 @@
 	<script src="js/view/dishSearchView.js"></script>
 	<script src="js/view/sideBarView.js"></script>
 	<script src="js/view/topBarView.js"></script>
+	<script src="js/view/dishRowView.js"></script>
 	<script src="js/view/totalPriceView.js"></script>
 
 	<!-- Controllers -->
@@ -125,6 +154,7 @@
 	<script src="js/controllers/totalPriceController.js"></script>
 	<script src="js/controllers/overviewController.js"></script>
 	<script src="js/controllers/topbarController.js"></script>
+	<script src="js/controllers/dishRowController.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
 
   </body>

@@ -3,6 +3,8 @@ var DishSearchView = function (container, model) {
 	this.searchButton = container.find("#searchButton");
 	this.dropdownValue = container.find("#searchDishType");
 	this.searchValue = container.find("#searchForDish");
+	var loading = container.find("#loading");
+	console.log(loading);
 
 	/**
 	* Creates an dishItemView and dishItemController for each
@@ -28,22 +30,17 @@ var DishSearchView = function (container, model) {
 	*/
 	this.update = function(typeValue, searchValue){
 		deleteDishes();
-		var dishes;
-		if(typeValue == "All dishes"){
-			dishes = model.getAllDishes("starter", searchValue);
-			dishes = dishes.concat(model.getAllDishes("main dish", searchValue));
-			dishes = dishes.concat(model.getAllDishes("dessert", searchValue));
-		};
-		if(typeValue == "Starter"){
-			dishes = model.getAllDishes("starter");
-		};
-		if(typeValue == "Main Dish"){
-			dishes = model.getAllDishes("main dish");
-		};
-		if(typeValue == "Dessert"){
-			dishes = model.getAllDishes("dessert", searchValue);
-		};
-		passDishes(dishes);
+		loading.attr("style", "display: block");
 
-	 }
+		model.getAllDishes(typeValue.toLowerCase(), searchValue, function(dishes){
+			console.log(loading)
+			loading.attr("style", "display: none");
+			passDishes(dishes.results);
+
+		}, function(){
+			loading.attr("style", "display: none");
+			window.alert("Something went terribubbably wrong...")
+		});
+
+	}
 }

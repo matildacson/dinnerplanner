@@ -2,21 +2,26 @@ var DishItemView = function(dish, container, model) {
 	this.dish = dish;
 
 	// Add a div to the div with id "dishItemView"
-	var dishDiv = document.createElement("div");
-	dishDiv.className = dish.name;
-	dishDiv.id = "dishDiv";
-	container.append(dishDiv);
+	var dishItemDiv = document.createElement("div");
+	dishItemDiv.id = "dishItemDiv";
+	container.append(dishItemDiv);
+
+	var dishImgDiv = document.createElement("div");
+	dishImgDiv.className = dish.name;
+	dishImgDiv.id = "dishImgDiv";
+	dishItemDiv.appendChild(dishImgDiv);
 
 	// Add image to the div
 	this.img = document.createElement("img");
-	this.img.src = "images/"+dish.image;
+	this.img.src = "https://spoonacular.com/recipeImages/"+dish.image;
 	this.img.id = "dishImg";
-	dishDiv.appendChild(this.img);
+	dishImgDiv.appendChild(this.img);
 
 	// Add text to the div
-	var p = document.createElement("p");
-	p.align = "center";
-	p.innerHTML = dish.name;
-	dishDiv.appendChild(p);
+	var dishTitle = document.createElement("div");
+	dishTitle.align = "center";
+	dishTitle.id = "dishTitle";
+	dishTitle.innerHTML = dish.title;
+	dishItemDiv.appendChild(dishTitle);
 
 }

@@ -19,6 +19,7 @@ var DinnerPrintoutView = function (container, model) {
 
 		// get all dishes in menu
 		var dishes = model.getFullMenu();
+		var details = model.getFullDetails();
 
 		// Pass all dishes in menu to getDishWindow()
 		for (var i = 0; i < dishes.length; i++) {
@@ -38,15 +39,15 @@ var DinnerPrintoutView = function (container, model) {
 
 			//image
 			var img = document.createElement("img");
-			img.src = "images/"+dishes[i].image 
+			img.src = "https://spoonacular.com/recipeImages/"+dish.image 
 			imgCol.appendChild(img);
 
 			//summary
-			var summary = dishes[i].name
+			var summary = dishes[i].title;
 			summaryCol.innerHTML = summary;
 
 			//preparation
-			var preparation = dishes[i].description;
+			var preparation = details[i].instructions
 			preparationCol.innerHTML = preparation;
 		}
 

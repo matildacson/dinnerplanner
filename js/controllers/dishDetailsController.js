@@ -1,7 +1,7 @@
 var DishDetailsController = function(view, model) {
 	
  	view.addToMenuButton.click(function(){
- 		model.addDishToMenu(view.getDish().id);
+ 		model.addDishToMenu(view.getDish());
  		showSelectDishPage();
  	});
 
