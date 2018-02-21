@@ -12,8 +12,10 @@ var DishRowView = function(passedDish, details, container, model) {
 	var btn = document.createElement("button");
 	btn.id = "removeDishButton";
 	dishDelete.append(btn);
+	var dishNameDiv = document.createElement("div");
 	dishName.innerHTML = passedDish.title;
 	dishPrice.innerHTML = Math.round(details.pricePerServing*model.getNumberOfGuests()*100)/100+" SEK";
+	dishPrice.className = "dishPrice"
 	var icon = document.createElement("span")
 	icon.className = "glyphicon glyphicon-remove";
 	btn.appendChild(icon)

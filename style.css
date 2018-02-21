@@ -84,6 +84,7 @@ font-size: 14px;
 background-color: #FFF;
 margin-right: 10px;
 padding: 10px;
+padding-top:20px;
 text-align: center;
 }
 
@@ -115,6 +116,20 @@ background: transparent;
 border: 0px;
 margin-right: 5px;
 }
+
+#totalPriceSidebar{
+margin-top:20px;
+border-top: 1px solid #000;
+font-weight: bold;
+text-align: center;
+padding:10px;
+font-family: futura;
+}
+
+.dishPrice{
+width:100px;
+}
+
 
 /* Dish search view*/ 
 
@@ -205,6 +220,14 @@ background: #FFF;
 padding: 20px;
 }
 
+#totalPriceIngredients{
+border-top: 1px solid #000;
+font-weight: bold;
+text-align: center;
+padding:10px;
+
+}
+
 
 /* Ingredients square */
 
@@ -254,7 +277,7 @@ background: #FFF;
 
 #loading{
 display: none;
-text-align: 
+
  }
 
 .sk-folding-cube {

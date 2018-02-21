@@ -92,7 +92,7 @@ var DishDetailsView = function (container, model) {
 		for (var i = 0; i < details.extendedIngredients.length; i++) {
 			createRow(details.extendedIngredients[i], ingredients);
 		}
-		createLastRow(details, ingredients);
+		createLastRow(details);
 	}
 
 	/**
@@ -115,19 +115,9 @@ var DishDetailsView = function (container, model) {
 	/**
 	* Create the last row of the ingredients part.
 	*/
-	function createLastRow(details, div) {
-		var totalPriceRow = document.createElement("tr");	
-		var total = document.createElement("td")
-		var currency = document.createElement("td");
-		var totalMenuCost = document.createElement("td");
-
-		div.append(totalPriceRow);
-		totalPriceRow.appendChild(total);
-		totalPriceRow.appendChild(currency);
-		totalPriceRow.appendChild(totalMenuCost);
-		totalMenuCost.innerHTML = getTotalPrice(details);
-		currency.innerHTML = "$";
-		total.innerHTML = "TOTAL:"
+	function createLastRow(details) {
+		var totalDiv = container.find("#totalPriceIngredients");
+		totalDiv.html("Total price: " + Math.round(getTotalPrice(details) *100)/100 + " SEK");
 	}
 
 	/**

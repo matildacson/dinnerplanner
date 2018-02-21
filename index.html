@@ -32,19 +32,12 @@
 						<tr>
 							<th></th>
 							<th>Dish</th>
-							<th>Cost</th>
+							<th>Price</th>
 							
 						</tr>
 						<tbody id="selectedDishes"></tbody>
-						<tfoot>
-							<tr>
-								
-								<td></td>
-								<td>Total:</td>
-								<td class="totalPriceCol"></td>
-							</tr>
-						</tfoot>
 					</table>
+					<div id="totalPriceSidebar"></div>
 					<br>
 					<button class="ordinaryButton" id="createDinnerButton" type="button">Create Dinner</button>	
 				</div>
@@ -104,6 +97,7 @@
 					<div class="col-sm-6 ingredientsDiv">
 						<h3 id="ingredientsHeader"></h2>
 						<table id="ingredientsTable"></table>
+						<div id="totalPriceIngredients"></div>
 						<center><button type="button" class="ordinaryButton" id="addToMenu">Add to menu</button></center>
 					</div>
 				</div>

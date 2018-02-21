@@ -32,12 +32,7 @@ var SidebarView = function (container, model) {
 	* Removes all current rows.
 	*/
 	function removeRows() {
-	//	while (container.find("tr").length > 1) {
-	//		container.find("tr:not(:first)").remove()
-//		}
-//	}
 		container.find("#selectedDishes").html("")
-		console.log("removing all rows")
 	}
 
 	/**
@@ -53,7 +48,7 @@ var SidebarView = function (container, model) {
 			var dishRowController = new DishRowController(dishRowView, model);
 		}
 		var total = model.getTotalMenuPrice();
-		container.find(".totalPriceCol").html(Math.round(total * 100) / 100+" SEK")
+		container.find("#totalPriceSidebar").html("Total price: "+Math.round(total * 100) / 100+" SEK")
 	}
 	
 }
