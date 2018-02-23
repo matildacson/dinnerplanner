@@ -177,12 +177,14 @@ height: 200px;
 height:200px;
 width:100%;
 object-fit: cover;
+border:0px;
+border-radius: 5px;
 }
 
 #dishItemDiv {
 display: inline-block;
 width:200px;
-margin-right: 12px;
+margin:5px;
 margin-bottom: 20px;
 vertical-align: top;
 }
@@ -191,13 +193,8 @@ vertical-align: top;
 width:100%;
 font-family: Futura;
 font-size: 14px;
+text-align: center;
 }
-
-#dishDetailsImg img{
-width: 100%;
-object-fit: cover;
-}
-
 
 /* Dinner Printout view*/
 
@@ -206,6 +203,52 @@ background: #FFF;
 padding: 20px;
 }
 
+#dinnerPrintoutView .col-sm-3, #dinnerPrintoutView .col.sm-9 {
+background: #FFF;
+padding: 20px;
+}
+
+#instructionsPrintout{
+font-family: Futura;
+font-size: 15px;
+}
+
+#dinnerPrintoutView {
+background: #FFF;
+padding: 20px;
+}
+
+#dishImgPrintout{
+border: 0px;
+border-radius: 5px;
+width:100%;
+height:300px;
+object-fit: cover;
+}
+
+#imgDivPrintout{
+height: width;
+}
+
+/*#dishImgDiv {
+margin-right: 10px;
+width: 200px;
+height: 200px;
+}
+
+#dishImg{
+height:200px;
+width:100%;
+object-fit: cover;
+border:0px;
+border-radius: 5px;
+} */
+
+#dishRow{
+border-bottom: 1px dashed #000;
+margin-bottom: 20px;
+padding-bottom: 20px;
+}
 /*Dinner Overview view*/
 
 #dinnerOverviewView {
@@ -225,13 +268,27 @@ border-top: 1px solid #000;
 font-weight: bold;
 text-align: center;
 padding:10px;
-
 }
 
+#dishDetailsImg img{
+width: 100%;
+object-fit: cover;
+border: 0px;
+border-radius: 5px;
+}
+
+#dishDetailsImg{
+margin-bottom: 20px;
+}
+
+#description{
+margin-bottom: 20px;
+}
 
 /* Ingredients square */
 
 .ingredientsDiv{
+
 background: #f2f2f2;
 border: 0px;
 border-radius: 5px;

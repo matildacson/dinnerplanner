@@ -1,7 +1,7 @@
 var DishItemView = function(dish, container, model) {
 	this.dish = dish;
 
-	// Add a div to the div with id "dishItemView"
+	// Add a div to the div with id "dishItemDiv"
 	var dishItemDiv = document.createElement("div");
 	dishItemDiv.id = "dishItemDiv";
 	container.append(dishItemDiv);

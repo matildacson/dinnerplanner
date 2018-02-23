@@ -21,34 +21,38 @@ var DinnerPrintoutView = function (container, model) {
 		var dishes = model.getFullMenu();
 		var details = model.getFullDetails();
 
-		// Pass all dishes in menu to getDishWindow()
 		for (var i = 0; i < dishes.length; i++) {
 			var dishRow = document.createElement("div");
 			dishRow.className = "row";
 			dishRow.id = "dishRow";
-			var imgCol = document.createElement("div");
-			imgCol.className = "col-sm-3";
-			var summaryCol = document.createElement("div");
-			summaryCol.className = "col-sm-6"
-			var preparationCol = document.createElement("div");
-			preparationCol.className = "col-sm-3";
+			var titleImgCol = document.createElement("div");
+			titleImgCol.className = "col-sm-4";
+			var preparationsCol = document.createElement("div");
+			preparationsCol.className = "col-sm-8"
+			preparationsCol.id = "instructionsPrintout"
 			container.append(dishRow);
-			dishRow.appendChild(imgCol);
-			dishRow.appendChild(summaryCol);
-			dishRow.appendChild(preparationCol);
+			dishRow.appendChild(titleImgCol);
+			dishRow.appendChild(preparationsCol);
 
 			//image
+			var imgDiv = document.createElement("div");
+			imgDiv.id = "imgDivPrintout"
 			var img = document.createElement("img");
-			img.src = "https://spoonacular.com/recipeImages/"+dish.image 
-			imgCol.appendChild(img);
+			img.src = "https://spoonacular.com/recipeImages/"+dishes[i].image 
+			img.id = "dishImgPrintout"
+			titleImgCol.append(imgDiv);
+			imgDiv.append(img)
 
-			//summary
-			var summary = dishes[i].title;
-			summaryCol.innerHTML = summary;
+			//title
+			var titleDiv = document.createElement("div");
+			titleDiv.id = "dishTitle";
+			var title = dishes[i].title;
+			titleDiv.innerHTML = title
+			titleImgCol.append(titleDiv);
 
 			//preparation
 			var preparation = details[i].instructions
-			preparationCol.innerHTML = preparation;
+			preparationsCol.innerHTML = preparation;
 		}
 
 

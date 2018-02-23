@@ -103,7 +103,7 @@ var DishDetailsView = function (container, model) {
 		var ingredientQuantity = document.createElement("td");
 		var ingredientUnit = document.createElement("td");
 		var ingredientName = document.createElement("td");
-		ingredientQuantity.innerHTML = object.amount*model.getNumberOfGuests() ;
+		ingredientQuantity.innerHTML = Math.round((object.amount*model.getNumberOfGuests())*10)/10 ;
 		ingredientUnit.innerHTML = object.unit;
 		ingredientName.innerHTML = object.name;
 		div.append(ingredientRow);
