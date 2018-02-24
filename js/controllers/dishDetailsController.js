@@ -1,11 +1,11 @@
-var DishDetailsController = function(view, model) {
+var DishDetailsController = function(view, model, app) {
 	
  	view.addToMenuButton.click(function(){
  		model.addDishToMenu(view.getDish());
- 		showSelectDishPage();
+ 		app.showSelectDishPage();
  	});
 
  	 view.backToSearch.click(function(){
- 		showSelectDishPage();
+ 		app.showSelectDishPage();
  	});
 }

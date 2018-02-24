@@ -19,8 +19,8 @@ var DishDetailsView = function (container, model) {
 	/**
 	* Update the page with passed dish.
 	*/
-	this.createPage = function(newPassed) {
-		dish = newPassed;
+	this.createPage = function(passedDish) {
+		dish = passedDish;
 		removeRows();
 		loading.attr("style", "display: block"); 
 
@@ -56,7 +56,7 @@ var DishDetailsView = function (container, model) {
 	}
 
 	/**
-	* Make the buttongs of this view reachable for the controllers.
+	* Make the buttons of this view reachable for the controllers.
 	*/
 	this.addToMenuButton = container.find("#addToMenu");
 	this.goBackButton = container.find("backToMenu");
@@ -76,7 +76,6 @@ var DishDetailsView = function (container, model) {
 	* Set the middle part of the view.
 	*/
 	function setMiddle(dish, dishDetails) {
-		console.log(dish);
 		container.find("#nameDiv").html(dish.title);
 		container.find("#dishDetailsImg").html("<img src='https://spoonacular.com/recipeImages/" +dish.image+ "' />");
 		container.find("#description").html(dishDetails.instructions);

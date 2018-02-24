@@ -1,7 +1,7 @@
-var TopbarController = function(view, model) {
+var TopbarController = function(view, model, app) {
 	
 	view.editDinnerButton.click(function(){
- 		showSelectDishPage();
+ 		app.showSelectDishPage();
  	});
 
 }

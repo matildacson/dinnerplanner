@@ -1,5 +1,5 @@
 //ExampleViewController Object constructor
- var SidebarController = function(view, model) {
+ var SidebarController = function(view, model, app) {
 
  	var dishRows = view.rows;
 
@@ -12,6 +12,6 @@
  	});
 
  	view.createDinnerButton.click(function(){
- 		showDinnerOverviewPage();
+ 		app.showDinnerOverviewPage();
  	});
  }

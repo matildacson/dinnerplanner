@@ -65,12 +65,12 @@ var DinnerModel = function() {
 
 	//Adds the passed dish to the menu. 
 	this.addDishToMenu = function(dish) {
-		//TODO Lab 1
-		this.getDishDetails(dish.id, function(details){
+		if (!selectedDishes.some(d => d.id == dish.id)) {
+			this.getDishDetails(dish.id, function(details){
 			selectedDishesDetails.push(details)
 			selectedDishes.push(dish);
-			notifyObservers();
-		})
+			notifyObservers();});
+		}
 	}
 
 	//Removes dish from menu
@@ -160,14 +160,5 @@ var DinnerModel = function() {
 
 		}
 	}
-
-	// the dishes variable contains an array of all the 
-	// dishes in the database. each dish has id, name, type,
-	// image (name of the image file), description and
-	// array of ingredients. Each ingredient has name, 
-	// quantity (a number), price (a number) and unit (string 
-	// defining the unit i.e. "g", "slices", "ml". Unit
-	// can sometimes be empty like in the example of eggs where
-	// you just say "5 eggs" and not "5 pieces of eggs" or anything else.
 	
 }

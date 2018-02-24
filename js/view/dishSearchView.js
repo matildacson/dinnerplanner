@@ -1,4 +1,4 @@
-var DishSearchView = function (container, model) { 
+var DishSearchView = function (container, model, app) { 
 
 	this.searchButton = container.find("#searchButton");
 	this.dropdownValue = container.find("#searchDishType");
@@ -12,7 +12,7 @@ var DishSearchView = function (container, model) {
 	var passDishes = function(dishes){
 		for (var i = 0; i < dishes.length; i++) {
 			var dishItemView = new DishItemView(dishes[i], container.find("#resultedDishes"), model);
-			var dishItemController = new DishItemController(dishItemView, model);
+			var dishItemController = new DishItemController(dishItemView, model, app);
 		};
 	};
 

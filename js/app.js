@@ -3,7 +3,7 @@ $(function() {
 	var model = new DinnerModel();
 
 	var sidebarView = new SidebarView($("#sidebarView"), model);
-	var dishSearchView = new DishSearchView($("#dishSearchView"), model);
+	var dishSearchView = new DishSearchView($("#dishSearchView"), model, this);
 	var dishDetailsView= new DishDetailsView($("#dishDetailsView"), model);
 	var topBarView = new TopBarView($("#topBarView"), model);
 	var dinnerOverviewView = new DinnerOverviewView($("#dinnerOverviewView"), model);
@@ -11,41 +11,24 @@ $(function() {
 	var totalPriceView = new TotalPriceView($("#totalPriceView"), model);
 
 	// Index page
-	$('#sidebarView').hide();
-	$('#dishSearchView').hide();
-	$('#dishItemView').hide();
+	hideAll();
 	$('#indexView').show();
-	$('#dinnerOverviewView').hide();
-	$('#dinnerPrintoutView').hide();
-	$('#dishDetailsView').hide();
-	$('#topBarView').hide();
-	$('#totalPriceView').hide();
-
+	
 	// Select dish page
-	showSelectDishPage = function () {
+	this.showSelectDishPage = function () {
+		hideAll();
 	 	$('#sidebarView').show();
 	 	$('#dishSearchView').show();
 	 	$('#dishItemView').show();
-	 	$('#indexView').hide();
-	 	$('#dinnerOverviewView').hide();
-	 	$('#dinnerPrintoutView').hide();
-	 	$('#dishDetailsView').hide();
-	 	$('#topBarView').hide();
-	 	$('#totalPriceView').hide();
 	 	dishDetailsView.removeFromObservers();
 		topBarView.removeFromObservers();
 		totalPriceView.removeFromObservers();
 		sidebarView.addToObservers();
 	};
 
-	showDinnerOverviewPage = function () {
-	 	$('#sidebarView').hide();
-	 	$('#dishSearchView').hide();
-	 	$('#dishItemView').hide();
-	 	$('#indexView').hide();
+	this.showDinnerOverviewPage = function () {
+		hideAll();
 	 	$('#dinnerOverviewView').show();
-	 	$('#dinnerPrintoutView').hide();
-	 	$('#dishDetailsView').hide();
 	 	$('#topBarView').show();
 		$('#totalPriceView').show();
 		sidebarView.removeFromObservers();
@@ -54,46 +37,43 @@ $(function() {
 		dinnerOverviewView.addToObservers();
 	};
 
-	showDishDetailsPage = function (dish) {
-	 	$('#dishSearchView').hide();
-	 	$('#dishItemView').hide();
-	 	$('#indexView').hide();
-	 	$('#dinnerOverviewView').hide();
-	 	$('#dinnerPrintoutView').hide();
+	this.showDishDetailsPage = function (dish) {
+		hideAll();
 	 	$('#dishDetailsView').show();
-	 	$('#topBarView').hide();
+	 	$('#sidebarView').show();
 		dishDetailsView.createPage(dish);
 		dishDetailsView.addToObservers();
 	};
 
-	showDinnerPrintoutPage = function () {
-	 	$('#dinnerOverviewView').hide();
+	this.showDinnerPrintoutPage = function () {
+		hideAll();
 	 	$('#dinnerPrintoutView').show();
 	 	$('#topBarView').show();
-	 	$('#totalPriceView').hide();
 	 	dinnerPrintoutView.addToObservers();
 	};
 
+	function hideAll() {
+		$('#sidebarView').hide();
+		$('#dishSearchView').hide();
+		$('#dishItemView').hide();
+		$('#indexView').hide();
+		$('#dinnerOverviewView').hide();
+		$('#dinnerPrintoutView').hide();
+		$('#dishDetailsView').hide();
+		$('#topBarView').hide();
+		$('#totalPriceView').hide();
+	}
+
 	//Index view
-	document.getElementById("beginButton").addEventListener("click", showSelectDishPage, false);
+	document.getElementById("beginButton").addEventListener("click", this.showSelectDishPage, false);
 
 	//Controllers
-	var sidebarController = new SidebarController(sidebarView, model)
-	var totalPriceController = new TotalPriceController(totalPriceView, model);
-	var overviewController = new OverviewController(dinnerOverviewView, model);
-	var topbarController = new TopbarController(topBarView, model);
-	var dishDetailsController = new DishDetailsController(dishDetailsView, model);
-	var dishSearchController = new DishSearchController(dishSearchView, model);
-
-
-/* 	$(document).ajaxStart(function(){
- 		console.log("hello")
- 		$('#loading').show()
- 	})
-
- 	$(document).ajaxComplete(function(){
- 		$('#loading').hide()
- 	})*/
+	var sidebarController = new SidebarController(sidebarView, model, this)
+	var totalPriceController = new TotalPriceController(totalPriceView, model, this);
+	var overviewController = new OverviewController(dinnerOverviewView, model, this);
+	var topbarController = new TopbarController(topBarView, model, this);
+	var dishDetailsController = new DishDetailsController(dishDetailsView, model, this);
+	var dishSearchController = new DishSearchController(dishSearchView, model, this);
 
 
 });

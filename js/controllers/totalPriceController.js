@@ -1,7 +1,7 @@
-var TotalPriceController = function(view, model) {
+var TotalPriceController = function(view, model, app) {
 	
 	view.printFullRecipeButton.click(function(){
- 		showDinnerPrintoutPage();
+ 		app.showDinnerPrintoutPage();
  	});
 
 }

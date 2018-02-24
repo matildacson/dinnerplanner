@@ -1,7 +1,7 @@
- var OverviewController = function(view, model) {
+ var OverviewController = function(view, model, app) {
  	
  	view.backButton.click(function(){
- 		showSelectDishPage();
+ 		app.showSelectDishPage();
  	});
 
  };
